@@ -4,103 +4,69 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>گالری نسرین هویدا — طراحی و پورتفولیو</title>
-<meta name="description" content="گالری آنلاین آثار نسرین هویدا — طراحی، هاشور، آبرنگ و مدل زنده" />
-
+<meta name="description" content="گالری آثار نسرین هویدا: طراحی، هاشور مدرن، آبرنگ و مدل‌های زنده. نمایش تصویری، لایت‌باکس و چیدمان Masonry." />
 <style>
   :root{
-    --bg: #fbfaf8;
-    --card: #fff;
-    --muted: #6b7280;
-    --accent: #0b84ff;
-    --accent-2: #04bfb0;
-    --paper: #f6f2ee;
-    --radius: 14px;
-    --gap: 16px;
-    font-family: "Vazirmatn", "IRANSans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --paper:#fbf7f1;
+    --card:#ffffff;
+    --muted:#606060;
+    --warm-1:#c86d3a;
+    --warm-2:#f3b37a;
+    --radius:14px;
+    --gap:16px;
+    font-family: "Vazirmatn", "IRANSans", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   }
-
   *{box-sizing:border-box}
   body{
-    margin:0; background:linear-gradient(180deg, #fff, var(--paper)); color:#111827;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    padding:28px;
+    margin:0; background:linear-gradient(180deg,var(--paper), #fff); color:#151515;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:28px;
   }
-
   .container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start}
-
   /* SIDEBAR */
-  .sidebar{
-    background:var(--card);padding:18px;border-radius:12px;border:1px solid #efe9e0;
-    box-shadow:0 8px 26px rgba(12,18,24,0.04);
-  }
-  .prof{display:flex;gap:14px;align-items:center}
-  .prof img{width:92px;height:92px;border-radius:999px;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+  .sidebar{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+  .prof{display:flex;gap:12px;align-items:center}
+  .prof img{width:92px;height:92px;border-radius:999px;object-fit:cover;border:3px solid #fff;box-shadow:0 10px 22px rgba(0,0,0,0.06)}
   h1{margin:0;font-size:20px}
   .role{color:var(--muted);font-size:13px;margin-top:2px}
-
   .bio{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.6}
-  .contact{margin-top:12px;color:var(--muted);font-size:13px}
-  .contact a{color:var(--accent);text-decoration:none}
-
+  .contact{margin-top:14px;color:var(--muted);font-size:13px}
+  .contact a{color:var(--warm-1);text-decoration:none}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .tag{background:#fff;padding:8px 10px;border-radius:999px;border:1px solid #f1ece7;color:var(--muted);font-weight:700;font-size:12px}
-
-  /* NAV for categories */
-  .cats{display:flex;flex-direction:column;gap:8px;margin-top:14px}
-  .cat-btn{display:block;text-align:center;padding:10px;border-radius:10px;border:1px solid #efe9e0;background:linear-gradient(90deg,#fff,#fbfbfb);font-weight:700;color:#0f1724;cursor:pointer}
-  .cat-btn.active{background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#fff;box-shadow:0 10px 30px rgba(11,132,255,0.08)}
-
+  .tag{background:#fff;padding:7px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.04);color:var(--muted);font-weight:700;font-size:12px}
+  .cats{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .cat-btn{display:block;text-align:center;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:linear-gradient(90deg,#fff,#fff);font-weight:700;color:#222;cursor:pointer}
+  .cat-btn.active{background:linear-gradient(90deg,var(--warm-1),var(--warm-2));color:white;box-shadow:0 8px 26px rgba(200,100,50,0.12)}
+  .download-cv{display:inline-block;margin-top:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--warm-1),var(--warm-2));color:#fff;text-decoration:none;font-weight:700}
   /* MAIN */
   main{min-height:600px}
-  .header-main{
-    margin-bottom:12px; display:flex;align-items:end;justify-content:space-between;gap:12px;
-  }
+  .header-main{margin-bottom:14px;display:flex;align-items:end;justify-content:space-between;gap:12px}
   .title-main{font-size:22px;font-weight:800;margin:0}
   .subtitle{color:var(--muted);font-size:14px}
-
-  /* masonry gallery using CSS columns */
-  .masonry{
-    column-width: 280px;
-    column-gap: var(--gap);
-    padding-bottom:40px;
-  }
-  .item{
-    break-inside: avoid;
-    margin:0 0 var(--gap) 0;
-    background:var(--card);border-radius:12px;overflow:hidden;border:1px solid #efe9e0;box-shadow:0 10px 30px rgba(12,18,24,0.04);
-  }
-  .item .imgwrap{position:relative;width:100%;height:auto;background:linear-gradient(135deg,#f8fcff,#fff)}
+  /* Masonry-like columns */
+  .masonry{column-width: 280px;column-gap: var(--gap);padding-bottom:40px}
+  .item{break-inside: avoid;margin:0 0 var(--gap) 0;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.03);box-shadow:0 10px 24px rgba(0,0,0,0.04);transition:transform .18s ease}
+  .item:hover{transform:translateY(-6px)}
+  .imgwrap{position:relative;width:100%;height:auto;background:linear-gradient(135deg,#fff8f3,#fff)}
   .item img{width:100%;height:auto;display:block;object-fit:cover}
-  .caption{padding:10px 12px;font-size:13px;color:var(--muted)}
-
-  /* grid placeholders when empty */
+  .caption{padding:10px 12px;font-size:13px;color:var(--muted);min-height:46px}
   .empty{padding:28px;color:var(--muted);text-align:center}
-
-  /* Lightbox */
-  .lightbox{
-    position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(8,12,20,0.8);z-index:9999;padding:24px;
-  }
+  /* LIGHTBOX */
+  .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,0.85);z-index:9999;padding:24px}
   .lightbox.show{display:flex}
-  .lb-inner{max-width:1200px;width:100%;border-radius:12px;overflow:hidden;background:#0b1316;display:flex;flex-direction:column}
+  .lb-inner{max-width:1200px;width:100%;border-radius:12px;overflow:hidden;background:#0b0b0b;display:flex;flex-direction:column}
   .lb-top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
   .lb-top .title{color:#fff;font-weight:800}
-  .lb-top .controls{display:flex;gap:8px}
+  .controls{display:flex;gap:8px}
   .btn{background:transparent;border:0;color:#fff;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
-  .btn.primary{background:var(--accent);padding:10px 12px;border-radius:8px}
+  .btn.primary{background:var(--warm-1);padding:8px 12px;border-radius:8px}
   .lb-media{display:flex;align-items:center;justify-content:center;background:#000;min-height:60vh}
   .lb-media img{max-width:100%;max-height:82vh;object-fit:contain}
-  .lb-caption{padding:12px 16px;color:#cfe8ff;background:linear-gradient(90deg,rgba(255,255,255,0.01),transparent);font-size:14px}
-
+  .lb-caption{padding:12px 16px;color:#dbeeff;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);font-size:14px}
   footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-
-  /* responsive */
-  @media (max-width:980px){
-    .container{grid-template-columns:1fr}
-    .masonry{column-width:210px}
-  }
-  @media (max-width:480px){
-    .masonry{column-width:160px}
-  }
+  @media (max-width:980px){ .container{grid-template-columns:1fr} .masonry{column-width:220px} }
+  @media (max-width:480px){ .masonry{column-width:160px} .prof img{width:76px;height:76px} .caption{font-size:12px} }
+  /* small helpful UI */
+  .loading{padding:28px;text-align:center;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -115,23 +81,23 @@
         </div>
       </div>
 
-      <p class="bio">تمرکز من بر خلق آثار نوآورانه در طراحی و پرورش بیان شخصی هنرجو است. در آثار و آموزش‌هایم تمرکز بر مشاهده دقیق، تحلیل ساختاری و تمرین تکنیکی است تا طراحی از قالب سنتی فراتر رود.</p>
+      <p class="bio">تمرکز من بر خلق آثار نوآورانه و آموزش طراحی با تمرکز بر مشاهده دقیق، ساختار و بیان شخصی است. طراحی من از پرتره تا فیگور و آبرنگ گسترده است.</p>
 
       <div class="contact">
         <div>📞 09196869919</div>
         <div>✉️ <a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
       </div>
 
-      <div class="tags">
+      <div class="tags" aria-hidden="false">
         <span class="tag">پرتره</span>
         <span class="tag">فیگور</span>
         <span class="tag">آبرنگ</span>
         <span class="tag">هاشور</span>
       </div>
 
-      <div class="cats" id="catsContainer" aria-label="دسته‌بندی آثار">
-        <!-- buttons injected by JS -->
-      </div>
+      <div class="cats" id="catsContainer" aria-label="دسته‌بندی آثار"></div>
+
+      <a class="download-cv" href="#" onclick="alert('در صورت نیاز فایل رزومه را اینجا آپلود کنید');return false">ارتباط / رزرو کلاس</a>
     </aside>
 
     <!-- MAIN -->
@@ -139,15 +105,15 @@
       <div class="header-main">
         <div>
           <h2 class="title-main">گالری آثار — نسرین هویدا</h2>
-          <div class="subtitle">طراحی | سبک مدرن هاشور | خلاقانه و آبرنگ | مدل های زنده و فیگوراتیو</div>
+          <div class="subtitle">طراحی • سبک مدرن هاشور • خلاقانه و آبرنگ • مدل‌های زنده و فیگوراتیو</div>
         </div>
         <div style="align-self:flex-start">
-          <button id="downloadAll" class="btn primary" title="دانلود تصاویر منتخب">دانلود</button>
+          <button id="downloadAll" class="btn primary" title="دانلود">دانلود نمونه</button>
         </div>
       </div>
 
       <section id="gallery" class="masonry" aria-live="polite">
-        <div class="empty">در حال بارگذاری آثار ...</div>
+        <div class="loading">در حال بارگذاری آثار ...</div>
       </section>
     </main>
   </div>
@@ -170,23 +136,34 @@
   </div>
 
 <script>
-/* ====== تنظیمات و دسته‌ها (تغییر نده مگر لازم است) ====== */
+/*
+  نسخهٔ نهایی گالری:
+  - از manifest.json در هر فولدر استفاده می‌کند (اگر وجود داشته باشد)
+  - اگر manifest موجود نبود، دو استراتژی پشتیبان اجرا می‌شوند:
+      1) اسکن عددی ساده (1.jpg..N.jpg)
+      2) اسکن الگوی نام‌های طولانی (الگوی آپلودهای قبلی)
+  - مسیرها بصورت روتی `/FolderName/file.jpg` خوانده می‌شوند (مهم)
+*/
+
+/* پیکربندی دسته‌ها — اسم فولدرها باید دقیقاً همین باشند */
 const categories = [
-  { key: "tarahi", title: "طراحی", folder: "طراحی" },
-  { key: "hashour", title: "سبک مدرن هاشور", folder: "سبک مدرن هاشور" },
-  { key: "abrang", title: "خلاقانه و آبرنگ", folder: "خلاقانه و آبرنگ" },
-  { key: "model", title: "مدل های زنده و فیگوراتیو", folder: "مدل های زنده و فیگوراتیو" },
+  { key: "Tarahi", title: "طراحی", folder: "Tarahi" },
+  { key: "Modern_Hashour", title: "سبک مدرن هاشور", folder: "Modern_Hashour" },
+  { key: "Khalaghane_Abrang", title: "خلاقانه و آبرنگ", folder: "Khalaghane_Abarang" },
+  { key: "Model_Figurative", title: "مدل های زنده و فیگوراتیو", folder: "Model_Figurative" },
 ];
 
 const galleryEl = document.getElementById('gallery');
 const catsContainer = document.getElementById('catsContainer');
 
-const MAX_SCAN = 40;            // تلاش عددی: 1..MAX_SCAN
-const LONGNAME_START = 46200;   // حدودی که فایل‌های طولانی تو در آن قرار دارند
-const LONGNAME_END = 46450;
+const MAX_SCAN = 40;                 // برای اسکن عددی (پشتیبان)
+const LONGNAME_START = 46260;       // دامنهٔ اسکن الگوی طولانی (پشتیبان)
+const LONGNAME_END = 46400;
 const exts = ["jpg","jpeg","png","webp"];
 
-/* ===== ایجاد دکمه‌های دسته‌ها ===== */
+const images = {}; // images[catKey] = [{src, title, filename}, ...]
+
+/* ایجاد دکمه‌های دسته‌بندی */
 categories.forEach((c, i) => {
   const btn = document.createElement('button');
   btn.textContent = c.title;
@@ -199,142 +176,100 @@ categories.forEach((c, i) => {
   catsContainer.appendChild(btn);
 });
 
-/* ===== نگهداری تصاویر پیدا شده ===== */
-const images = {}; // images[catKey] = [{src, title, filename}, ...]
-
-/* ===== کمک‌تابع: build URL درست با encodeURIComponent برای نام پوشه فارسی ===== */
+/* کمک: ساخت مسیر صحیح (روت سایت) */
 function buildPath(folder, filename){
-  // encode each segment, but keep '/' between.
-  return encodeURIComponent(folder) + '/' + encodeURIComponent(filename);
+  // path is root-based: /FolderName/file.ext
+  return `/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
 }
 
-/* ===== تلاش برای وجود فایل با استفاده از Image object ===== */
+/* تلاش برای لود تصویر (برای چک وجود) */
 function tryLoad(src){
   return new Promise(resolve=>{
     const img = new Image();
     img.onload = ()=> resolve({ok:true, src});
     img.onerror = ()=> resolve({ok:false, src});
-    // add small cache-buster for GH in rare cases
     img.src = src;
   });
 }
 
-/* ===== اسکن یک پوشه: 1) اگر manifest.json موجود باشد از آن استفاده می‌کنیم
-       2) در غیر این صورت: تلاش عددی 1..MAX_SCAN
-       3) سپس تلاش برای اسکن نام‌های طولانی در بازه LONGNAME_START..LONGNAME_END
-===== */
+/* اسکن یک پوشه: ابتدا manifest.json، اگر نبود -> fallback */
 async function scanFolder(catKey){
   const cat = categories.find(c=>c.key===catKey);
   images[catKey] = [];
 
-  // 1) تلاش برای manifest.json
+  // 1) try manifest.json from the folder root
   try {
     const manifestPath = buildPath(cat.folder, 'manifest.json');
     const r = await fetch(manifestPath);
     if(r.ok){
       const list = await r.json();
-      // list should be array of filenames
       for(const fname of list){
-        for(const extTry of exts){
-          const trial = (fname.toLowerCase().endsWith(extTry) ? fname : fname);
-          const path = buildPath(cat.folder, trial);
-          const res = await tryLoad(path);
-          if(res.ok){ images[catKey].push({src:path,title:`${cat.title}`,filename:trial}); break; }
-        }
+        const trialPath = buildPath(cat.folder, fname);
+        const res = await tryLoad(trialPath);
+        if(res.ok) images[catKey].push({src:trialPath, title:cat.title, filename: fname});
       }
       return;
     }
   } catch(e){
-    // ignore
+    // ignore errors and continue to fallback scanning
+    console.warn('manifest not found or failed to load for', cat.folder);
   }
 
-  // 2) تلاش عددی ساده
+  // 2) numeric scan (1.jpg ... MAX_SCAN)
   for(let i=1;i<=MAX_SCAN;i++){
-    let found = false;
     for(const ext of exts){
       const fname = `${i}.${ext}`;
       const path = buildPath(cat.folder, fname);
       const res = await tryLoad(path);
-      if(res.ok){
-        images[catKey].push({src:path,title: `${cat.title} — ${i}`, filename: fname});
-        found = true; break;
-      }
+      if(res.ok) images[catKey].push({src:path,title:`${cat.title} — ${i}`,filename: fname});
     }
-    // ادامه حتی اگر پیدا نشد؛ ممکن شماره‌ها گسسته باشند
   }
 
-  // 3) تلاش نام‌های طولانی (pattern shown در screenshots)
+  // 3) longname pattern scan (seen in repo uploads)
+  // this tries filenames like 58732074852655_<n>.jpg
   for(let n=LONGNAME_START; n<=LONGNAME_END; n++){
     for(const ext of exts){
-      const fname = `58732074852655_${n}.${ext}`; // pattern seen in your uploads
+      const fname = `58732074852655_${n}.${ext}`;
       const path = buildPath(cat.folder, fname);
-      // await in small batches to avoid blocking too long
       const res = await tryLoad(path);
-      if(res.ok){
-        images[catKey].push({src:path,title:`${cat.title} — ${n}`,filename: fname});
-      }
+      if(res.ok) images[catKey].push({src:path,title:`${cat.title} — ${n}`,filename: fname});
     }
   }
 }
 
-/* ===== اسکن تمام پوشه‌ها (متوالی) ===== */
+/* اسکن همهٔ پوشه‌ها */
 async function scanAll(){
-  galleryEl.innerHTML = '<div class="empty">در حال اسکن پوشه‌ها و بارگذاری تصاویر ...</div>';
+  galleryEl.innerHTML = '<div class="loading">در حال اسکن پوشه‌ها و بارگذاری تصاویر ...</div>';
   for(const c of categories){
     await scanFolder(c.key);
   }
-  // بعد از اسکن، نمایش اولین دسته
+  // render first category by default
   renderCategory(categories[0].key);
 }
 
-/* ===== رندر یک دسته ===== */
+/* رندر یک دسته در گالری */
 function renderCategory(catKey){
   galleryEl.innerHTML = '';
   const arr = images[catKey] || [];
   if(arr.length===0){
-    galleryEl.innerHTML = '<div class="empty">فعلاً تصویری در این دسته موجود نیست. تصویرا را در پوشه مربوطه آپلود کن یا یک manifest.json حاوی نام فایل‌ها قرار بده.</div>';
+    galleryEl.innerHTML = '<div class="empty">فعلاً تصویری در این دسته موجود نیست. برای تجربهٔ بهتر، مطمئن شو manifest.json در پوشه قرار دارد یا نام فایل‌ها مطابق لیست هستند.</div>';
     return;
   }
   for(let i=0;i<arr.length;i++){
     const it = arr[i];
-    const item = document.createElement('article');
-    item.className = 'item';
-    const wrap = document.createElement('div');
-    wrap.className = 'imgwrap';
-
-    const img = document.createElement('img');
-    // use decoded URL for browser; encodeURIComponent used earlier on path segments,
-    // but browser needs percent-encoded segments; buildPath returned encoded segments already
-    img.src = it.src;
-    img.alt = it.title;
-    img.loading = 'lazy';
-
-    // placeholder text (visible until image loads)
-    const ph = document.createElement('div');
-    ph.className = 'ph';
-    ph.style.display='none';
-    ph.textContent = it.title;
-
+    const item = document.createElement('article'); item.className='item';
+    const wrap = document.createElement('div'); wrap.className='imgwrap';
+    const img = document.createElement('img'); img.src = it.src; img.alt = it.filename || it.title; img.loading='lazy';
     wrap.appendChild(img);
-    wrap.appendChild(ph);
-
-    const cap = document.createElement('div');
-    cap.className = 'caption';
-    cap.textContent = it.title;
-
-    item.appendChild(wrap);
-    item.appendChild(cap);
-
-    // click to open lightbox
+    const cap = document.createElement('div'); cap.className='caption'; cap.textContent = it.title;
+    item.appendChild(wrap); item.appendChild(cap);
     item.addEventListener('click', ()=> openLightbox(catKey, i));
     galleryEl.appendChild(item);
-
-    img.onload = ()=> { if(ph) ph.style.display='none'; }
-    img.onerror = ()=> { if(ph){ ph.style.display='flex'; img.style.display='none'; } }
+    img.onerror = ()=> { img.style.display='none'; cap.textContent = '(تصویر بارگزاری نشد) ' + (it.filename||''); }
   }
 }
 
-/* ===== Lightbox ===== */
+/* ============ Lightbox ============ */
 const lb = document.getElementById('lightbox');
 const lbImage = document.getElementById('lbImage');
 const lbTitle = document.getElementById('lbTitle');
@@ -345,62 +280,39 @@ const nextBtn = document.getElementById('nextBtn');
 const closeBtn = document.getElementById('closeBtn');
 
 let current = {cat:null, idx:0};
-
 function openLightbox(catKey, idx){
-  const arr = images[catKey] || [];
-  if(!arr[idx]) return;
+  const arr = images[catKey] || []; if(!arr[idx]) return;
   current.cat = catKey; current.idx = idx;
   const it = arr[idx];
   lbImage.src = it.src;
   lbTitle.textContent = categories.find(c=>c.key===catKey).title;
-  lbCaption.textContent = `${it.filename || ''}`;
+  lbCaption.textContent = it.filename || '';
   dlBtn.href = it.src;
-  lb.classList.add('show');
-  document.body.style.overflow='hidden';
+  lb.classList.add('show'); document.body.style.overflow='hidden';
 }
-
-function closeLightbox(){
-  lb.classList.remove('show');
-  lbImage.src = '';
-  document.body.style.overflow='';
-}
-
-function showNext(){
-  const arr = images[current.cat] || [];
-  if(arr.length===0) return;
-  current.idx = (current.idx+1) % arr.length;
-  openLightbox(current.cat, current.idx);
-}
-function showPrev(){
-  const arr = images[current.cat] || [];
-  if(arr.length===0) return;
-  current.idx = (current.idx-1+arr.length) % arr.length;
-  openLightbox(current.cat, current.idx);
-}
+function closeLightbox(){ lb.classList.remove('show'); lbImage.src=''; document.body.style.overflow=''; }
+function showNext(){ const arr = images[current.cat]||[]; if(!arr.length) return; current.idx = (current.idx+1)%arr.length; openLightbox(current.cat, current.idx); }
+function showPrev(){ const arr = images[current.cat]||[]; if(!arr.length) return; current.idx = (current.idx-1+arr.length)%arr.length; openLightbox(current.cat, current.idx); }
 
 nextBtn.addEventListener('click', showNext);
 prevBtn.addEventListener('click', showPrev);
 closeBtn.addEventListener('click', closeLightbox);
 lb.addEventListener('click', e=> { if(e.target === lb) closeLightbox(); });
-document.addEventListener('keydown', e=> {
-  if(!lb.classList.contains('show')) return;
-  if(e.key === 'ArrowRight') showNext();
-  if(e.key === 'ArrowLeft') showPrev();
-  if(e.key === 'Escape') closeLightbox();
-});
+document.addEventListener('keydown', e=> { if(!lb.classList.contains('show')) return; if(e.key==='ArrowRight') showNext(); if(e.key==='ArrowLeft') showPrev(); if(e.key==='Escape') closeLightbox(); });
 
-/* ===== Download all visible (نمونه ساده: ایجاد آرشیو نیست؛ لینک به اولین تصویر) ===== */
+/* دانلود ساده: لینک اولین تصویر دسته (برای آرشیو zip نیاز به backend یا ساخت zip دستی) */
 document.getElementById('downloadAll').addEventListener('click', ()=>{
   const active = document.querySelector('.cat-btn.active');
   if(!active){ alert('ابتدا یک دسته را انتخاب کنید.'); return; }
-  const key = categories.find(c=>c.title===active.textContent)?.key;
+  const idx = Array.from(document.querySelectorAll('.cat-btn')).indexOf(active);
+  const key = categories[idx].key;
   const arr = images[key] || [];
-  if(arr.length===0){ alert('تصویری برای دانلود موجود نیست.'); return; }
-  // ساده: دانلود اولین تصویر (برای دانلود مجموعه باید ZIP ساخته و آپلود شود)
+  if(arr.length===0){ alert('هیچ تصویری برای دانلود موجود نیست.'); return; }
+  // دانلود اولین تصویر به عنوان نمونه
   location.href = arr[0].src;
 });
 
-/* ===== شروع اسکن ===== */
+/* شروع اسکن و بارگذاری */
 scanAll();
 </script>
 </body>
