@@ -4,117 +4,149 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>گالری آثار — نسرین هویدا</title>
-<meta name="description" content="گالری آنلاین نسرین هویدا — طراح و مدرس طراحی آکادمیک. گالری تصویری از طراحی‌ها، سبک مدرن هاشور، خلاقانه و آبرنگ و مدل‌های زنده." />
+<meta name="description" content="گالری آنلاین نسرین هویدا — طراح و مدرس طراحی آکادمیک. مجموعه: طراحی، سبک مدرن هاشور، خلاقانه و آبرنگ، مدل‌های زنده و فیگوراتیو." />
 <style>
   :root{
     --bg:#fbf7f4;
     --card:#ffffff;
     --muted:#6b6b6b;
-    --accent1:#b36b3f; /* gradient color */
+    --text:#202020;
+    --accent1:#b36b3f;
     --accent2:#e4a56e;
+    --glass: rgba(179,107,63,0.08);
     --radius:14px;
-    --soft:#f0e9e6;
-    font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --soft:#f3ebe6;
+    font-family: "Vazirmatn", "Helvetica Neue", Arial, sans-serif;
   }
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,#fbf7f4,#fff);color:#1a1a1a}
-  .wrap{max-width:1200px;margin:26px auto;display:grid;grid-template-columns:1fr 320px;gap:28px;padding:0 18px;align-items:start}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#fbf7f4,#fff);color:var(--text);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1220px;margin:26px auto;display:grid;grid-template-columns:1fr 340px;gap:28px;padding:0 18px;align-items:start}
   /* SIDEBAR */
-  .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 24px rgba(16,24,32,0.04)}
-  .profile-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 10px;box-shadow:0 6px 18px rgba(16,24,32,0.06)}
+  .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(16,24,32,0.05)}
+  .profile-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:6px auto 12px;border:6px solid #fff;box-shadow:0 12px 30px rgba(16,24,32,0.06)}
   .profile-pic img{width:100%;height:100%;object-fit:cover;display:block}
-  h1.name{font-size:18px;margin:6px 0 2px;text-align:center}
+  h1.name{font-size:20px;margin:2px 0 4px;text-align:center;font-weight:800}
   .role{font-size:13px;color:var(--muted);text-align:center;margin-bottom:8px}
-  .contact{font-size:14px;color:var(--muted);line-height:1.6;text-align:center}
+  .contact{font-size:14px;color:var(--muted);line-height:1.7;text-align:center}
   .contact a{color:var(--accent1);text-decoration:none}
-  .badge{display:inline-block;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:8px 12px;border-radius:10px;font-weight:700;margin:12px auto 8px;display:block;text-align:center}
+  .pill{display:inline-block;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;margin:12px auto 10px;display:block;text-align:center}
 
-  .filters{margin-top:14px;display:flex;flex-direction:column;gap:8px}
-  .filter-btn{background:#fff;border:1px solid #efe5df;padding:10px;border-radius:8px;cursor:pointer;color:#3b3b3b}
-  .filter-btn.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;border:0}
+  .filters{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .filter-btn{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #efe5df;padding:10px;border-radius:10px;cursor:pointer;color:#3b3b3b;box-shadow:inset 0 -2px 0 rgba(0,0,0,0.02)}
+  .filter-btn svg{width:18px;height:18px;flex:0 0 18px}
+  .filter-btn.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;border:0;box-shadow:0 8px 24px rgba(179,107,63,0.12)}
 
-  .about{margin-top:14px;color:var(--muted);font-size:14px;line-height:1.6;white-space:pre-wrap}
+  .about{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.7;white-space:pre-wrap;padding-top:8px;border-top:1px dashed #f1e9e5}
 
   /* MAIN */
-  main{min-height:500px}
-  header.top{
-    display:flex;align-items:flex-start;gap:12px;justify-content:space-between;margin-bottom:12px;
-  }
-  .title{
-    font-size:20px;font-weight:700;
-  }
+  main{min-height:520px}
+  header.top{display:flex;align-items:flex-start;gap:12px;justify-content:space-between;margin-bottom:12px}
+  .title{font-size:22px;font-weight:800}
   .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
 
   /* gallery grid */
   .grid{
     display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;
   }
-  .card-item{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.03);box-shadow:0 6px 18px rgba(16,24,32,0.03);position:relative}
+  .card-item{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.03);box-shadow:0 8px 26px rgba(16,24,32,0.04);position:relative;transition:transform .18s ease,box-shadow .18s ease}
+  .card-item:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(16,24,32,0.08)}
   .media{width:100%;height:0;padding-bottom:62%;position:relative;background:linear-gradient(180deg,#f6f6f6,#fff)}
   .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  .index-badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,0.6);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px}
-  .caption{padding:12px;border-top:1px solid #faf7f5;background:#fff}
-  .caption .title{font-weight:700;font-size:15px;margin-bottom:6px}
-  .caption .meta{color:var(--muted);font-size:12px}
+  .index-badge{position:absolute;left:10px;top:10px;background:linear-gradient(90deg,#000000aa,#00000066);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px}
+  .caption{padding:12px;border-top:1px solid #faf7f5;background:#fff;display:flex;flex-direction:column;gap:6px}
+  .caption .title{font-weight:800;font-size:15px}
+  .caption .meta{color:var(--muted);font-size:12px;direction:ltr;text-align:left}
+
+  /* icons & small */
+  .small-icon{width:16px;height:16px;vertical-align:middle;margin-left:6px;opacity:0.9}
 
   /* lightbox */
-  .lightbox{
-    position:fixed;inset:0;background:rgba(6,10,12,0.75);display:none;align-items:center;justify-content:center;padding:28px;z-index:9999
-  }
-  .lightbox img{max-width:95%;max-height:85%;box-shadow:0 18px 60px rgba(0,0,0,0.6);border-radius:8px}
+  .lightbox{position:fixed;inset:0;background:rgba(6,10,12,0.8);display:none;align-items:center;justify-content:center;padding:28px;z-index:9999}
+  .lightbox .panel{max-width:1100px;max-height:90vh;overflow:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.6);background:#fff;padding:16px}
+  .lightbox img{max-width:100%;height:auto;display:block;border-radius:6px}
+  .lightbox .meta{margin-top:10px;color:var(--muted);font-size:13px}
 
   /* responsive */
   @media (max-width:980px){
-    .wrap{grid-template-columns:1fr; padding:0 12px}
-    .card{margin-bottom:12px}
+    .wrap{grid-template-columns:1fr;padding:0 12px}
+    .profile-pic{width:96px;height:96px}
+    .filters{flex-direction:row;flex-wrap:wrap;gap:8px}
+    .filter-btn{flex:1 1 auto;justify-content:center}
   }
 </style>
 </head>
 <body>
   <div class="wrap" dir="rtl">
-    <!-- MAIN GRID (left) -->
+    <!-- MAIN -->
     <main>
-      <div class="top">
+      <header class="top">
         <div>
           <div class="title">گالری آثار — نسرین هویدا</div>
-          <div class="subtitle">طراحی | سبک مدرن هاشور | خلاقانه و آبرنگ | مدل‌های زنده و فیگوراتیو</div>
+          <div class="subtitle">طراحی · سبک مدرن هاشور · خلاقانه و آبرنگ · مدل‌های زنده و فیگوراتیو</div>
         </div>
-        <!-- upload removed per request -->
-      </div>
+        <!-- upload & search removed per request -->
+      </header>
 
-      <section id="gallery-section" class="grid" aria-live="polite">
-        <!-- items will be inserted by JS -->
+      <section id="gallery" class="grid" aria-live="polite">
+        <!-- JS will render cards here -->
       </section>
     </main>
 
     <!-- SIDEBAR -->
-    <aside class="card" aria-label="Profile">
-      <div class="profile-pic">
-        <img src="nasrin_profile.jpg" alt="تصویر نسرین هویدا" />
+    <aside class="card" aria-label="پروفایل هنرمند">
+      <div class="profile-pic" role="img" aria-label="عکس نسرین">
+        <picture>
+          <source srcset="profilenasrin.png" type="image/png">
+          <img src="nasrin_profile.jpg" alt="نسرین هویدا — پروفایل" />
+        </picture>
       </div>
+
       <h1 class="name">نسرین هویدا</h1>
       <div class="role">طراح و مدرس طراحی آکادمیک</div>
 
-      <div class="contact">
-        <div>تلفن: 09196869919</div>
-        <div>ایمیل‌ها: 
-          <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
-          <div><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
+      <div class="contact" style="margin-top:10px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
+          <!-- phone icon -->
+          <svg class="small-icon" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" fill="#b36b3f"/></svg>
+          <div>09196869919</div>
+        </div>
+
+        <div style="text-align:center">
+          <div><svg class="small-icon" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" fill="#eaeaea"/><path d="M4 6l8 6 8-6" stroke="#b36b3f" stroke-width="1.5" fill="none"/></svg>
+            <a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
+          <div style="margin-top:6px"><svg class="small-icon" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" fill="#eaeaea"/><path d="M4 6l8 6 8-6" stroke="#b36b3f" stroke-width="1.5" fill="none"/></svg>
+            <a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
         </div>
       </div>
 
-      <!-- badge removed download button as requested -->
-      <div class="badge">رزومه (PDF)</div>
+      <div style="margin-top:14px">
+        <a href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener" class="pill" title="مشاهده رزومه">مشاهده رزومه (PDF)</a>
+      </div>
 
-      <div class="filters" id="filters">
-        <button class="filter-btn active" data-cat="all">همه</button>
-        <button class="filter-btn" data-cat="Tarahi">طراحی</button>
-        <button class="filter-btn" data-cat="Modern_Hashour">سبک مدرن هاشور</button>
-        <button class="filter-btn" data-cat="Khalaghane_Abrang">خلاقانه و آبرنگ</button>
-        <button class="filter-btn" data-cat="Model_Figurative">مدل‌های زنده و فیگوراتیو</button>
+      <div class="filters" id="filters" style="margin-top:14px" aria-hidden="false">
+        <button class="filter-btn active" data-cat="all">
+          <!-- grid icon -->
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.2"/></svg>
+          همه
+        </button>
+        <button class="filter-btn" data-cat="Tarahi">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 21l18-18" stroke="#b36b3f" stroke-width="1.6"/></svg>
+          طراحی
+        </button>
+        <button class="filter-btn" data-cat="Modern_Hashour">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#b36b3f" stroke-width="1.6"/></svg>
+          سبک مدرن هاشور
+        </button>
+        <button class="filter-btn" data-cat="Khalaghane_Abrang">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#b36b3f" stroke-width="1.6"/></svg>
+          خلاقانه و آبرنگ
+        </button>
+        <button class="filter-btn" data-cat="Model_Figurative">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b36b3f" stroke-width="1.6"/></svg>
+          مدل‌های زنده و فیگوراتیو
+        </button>
       </div>
 
       <div class="about" id="about">
-        <!-- متنی از فایل رزومه برداشت شده و به عنوان درباره من استفاده شده -->
         تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
       </div>
     </aside>
@@ -122,16 +154,15 @@
 
   <!-- lightbox -->
   <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
-    <img src="" alt="" id="lightbox-img">
+    <div class="panel" role="document">
+      <button id="lb-close" style="float:left;border:0;background:none;color:#666;font-weight:700;cursor:pointer">× بستن</button>
+      <img id="lb-img" src="" alt="">
+      <div class="meta" id="lb-meta"></div>
+    </div>
   </div>
 
 <script>
-/*
-  gallery loader:
-  - expects manifest.json in each folder with an array of filenames, e.g. ["5873207485265546326.jpg", ...]
-  - folders list below must match exact folder names in repo root
-  - builds a global numbered gallery and supports category filter
-*/
+/* ========== تنظیمات: نام پوشه‌ها باید همان باشد ========== */
 const folders = [
   { key: "Khalaghane_Abrang", label: "خلاقانه و آبرنگ" },
   { key: "Model_Figurative", label: "مدل‌های زنده و فیگوراتیو" },
@@ -139,9 +170,9 @@ const folders = [
   { key: "Tarahi", label: "طراحی" }
 ];
 
-const galleryEl = document.getElementById('gallery-section');
-const filtersEl = document.getElementById('filters');
-let items = []; // {idx, folderKey, filename, url}
+const galleryEl = document.getElementById('gallery');
+const filters = document.getElementById('filters');
+let items = []; // آرایهٔ تصاویر: {idx, folderKey, filename, url}
 
 async function loadManifests(){
   let globalIndex = 1;
@@ -149,15 +180,21 @@ async function loadManifests(){
     const manifestPath = `/${f.key}/manifest.json`;
     try{
       const res = await fetch(manifestPath, {cache:'no-store'});
-      if(!res.ok) { console.warn('manifest not found:', manifestPath); continue; }
+      if(!res.ok){
+        console.warn('manifest not found:', manifestPath);
+        continue;
+      }
       const list = await res.json();
-      if(!Array.isArray(list)) { console.warn('manifest not array:', manifestPath); continue; }
+      if(!Array.isArray(list)){
+        console.warn('manifest not array:', manifestPath);
+        continue;
+      }
       for(const fn of list){
-        // safe URL join
         const url = `/${f.key}/${encodeURIComponent(fn)}`;
         items.push({
           idx: globalIndex,
           folderKey: f.key,
+          folderLabel: f.label,
           filename: fn,
           url
         });
@@ -170,82 +207,89 @@ async function loadManifests(){
   renderGallery(items);
 }
 
-function renderGallery(arr){
+/* رندر کارت‌ها */
+function renderGallery(list){
   galleryEl.innerHTML = '';
-  if(arr.length === 0){
-    galleryEl.innerHTML = '<div style="color:var(--muted);padding:18px">تصویری یافت نشد.</div>';
+  if(!list.length){
+    galleryEl.innerHTML = '<div style="color:var(--muted);padding:18px">فعلاً تصویری برای نمایش وجود ندارد.</div>';
     return;
   }
-  for(const it of arr){
+  for(const it of list){
     const card = document.createElement('article');
     card.className = 'card-item';
     card.setAttribute('data-cat', it.folderKey);
 
     const media = document.createElement('div');
     media.className = 'media';
+
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.src = it.url;
-    img.alt = `${it.filename}`;
-    // placeholder if image fails
-    img.onerror = function(){ this.style.display='none'; media.classList.add('placeholder'); }
-    img.onclick = ()=>openLightbox(it.url, it.filename);
+    img.alt = it.filename;
+    img.onerror = function(){ this.style.display='none'; media.style.background = '#fff url("placeholder.png") center/cover no-repeat'; }
 
-    const idx = document.createElement('div');
-    idx.className = 'index-badge';
-    idx.textContent = String(it.idx);
-
-    media.appendChild(img);
-    media.appendChild(idx);
+    const badge = document.createElement('div');
+    badge.className = 'index-badge';
+    badge.textContent = String(it.idx);
 
     const caption = document.createElement('div');
     caption.className = 'caption';
+
     const title = document.createElement('div');
     title.className = 'title';
-    title.textContent = 'طرح'; // requested label
+    title.textContent = 'طرح';
+
     const meta = document.createElement('div');
     meta.className = 'meta';
-    meta.textContent = `${it.filename} — ${it.folderKey.replace('_',' ')}`;
+    meta.textContent = `${it.filename} — ${it.folderLabel}`;
 
     caption.appendChild(title);
     caption.appendChild(meta);
 
+    // click to open large
+    img.addEventListener('click', ()=> openLightbox(it));
+
+    media.appendChild(img);
+    media.appendChild(badge);
     card.appendChild(media);
     card.appendChild(caption);
     galleryEl.appendChild(card);
   }
 }
 
-// filtering logic
-filtersEl.addEventListener('click', (e)=>{
+/* فیلترها */
+filters.addEventListener('click', (e)=>{
   const btn = e.target.closest('.filter-btn');
   if(!btn) return;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const cat = btn.getAttribute('data-cat');
-  if(cat === 'all'){
-    renderGallery(items);
-  } else {
-    renderGallery(items.filter(i=>i.folderKey === cat));
-  }
+  const cat = btn.dataset.cat;
+  if(cat === 'all') renderGallery(items);
+  else renderGallery(items.filter(i=>i.folderKey === cat));
 });
 
-// simple lightbox
+/* لایت‌باکس */
 const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightbox-img');
-function openLightbox(url, alt){
-  lbImg.src = url;
-  lbImg.alt = alt;
+const lbImg = document.getElementById('lb-img');
+const lbMeta = document.getElementById('lb-meta');
+document.getElementById('lb-close').addEventListener('click', ()=> closeLightbox());
+lightbox.addEventListener('click', (ev)=>{ if(ev.target === lightbox) closeLightbox(); });
+
+function openLightbox(item){
+  lbImg.src = item.url;
+  lbImg.alt = item.filename;
+  lbMeta.textContent = `${item.filename} — ${item.folderLabel} — شماره: ${item.idx}`;
   lightbox.style.display = 'flex';
   lightbox.setAttribute('aria-hidden','false');
+  window.scrollTo({top:0,left:0,behavior:'smooth'});
 }
-lightbox.addEventListener('click', ()=>{
+function closeLightbox(){
   lightbox.style.display = 'none';
   lightbox.setAttribute('aria-hidden','true');
   lbImg.src = '';
-});
+}
 
-// kick off
+/* شروع */
 loadManifests();
 </script>
 </body>
