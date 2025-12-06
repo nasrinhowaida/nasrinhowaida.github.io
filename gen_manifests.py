@@ -6,7 +6,7 @@ import os, json
 folders = [
     "Tarahi",
     "Modern_Hashour",
-    "Khalaghane_Abarang",
+    "Khalaghane_Abrang",
     "Model_Figurative"
 ]
 
