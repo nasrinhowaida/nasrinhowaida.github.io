@@ -1,107 +1,321 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<title>رزومه نسرین هویدا – طراح و مدرس طراحی آکادمیک</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>گالری نسرین هویدا — طراحی و پورتفولیو</title>
+<meta name="description" content="پورتفولیو نقاشی و طراحی نسرین هویدا — طراحی، هاشور، آبرنگ و مدل زنده" />
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
 <style>
+  :root{
+    --bg:#f7f7f9;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#0b84ff;
+    --accent-2:#04bfb0;
+    --radius:14px;
+    --gap:14px;
+    font-family: "Vazirmatn", "IRANSans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
   body{
-    font-family: "IRANSans", sans-serif;
-    background:#fafafa;
-    color:#222;
-    margin:0;
-    padding:40px 20px;
-    line-height:1.8;
+    margin:0; background:linear-gradient(180deg,#fbfdff,#f7f7f9); color:#111827;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    padding:30px;
   }
-  .wrap{
-    max-width:760px;
-    margin:auto;
-    background:white;
-    padding:40px 36px;
-    border-radius:12px;
-    box-shadow:0 8px 28px rgba(0,0,0,0.06);
+
+  .wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px}
+  header{display:flex;align-items:center;gap:16px}
+  .profile{
+    display:flex;align-items:center;gap:16px;background:var(--card);padding:16px;border-radius:12px;border:1px solid #eef2f7;
+    box-shadow:0 8px 24px rgba(16,24,40,0.04)
   }
-  h1{
-    margin-top:0;
-    font-size:30px;
-    font-weight:800;
+  .profile img{width:94px;height:94px;border-radius:8px;object-fit:cover;border:2px solid #fff}
+  .profile h1{margin:0;font-size:20px}
+  .profile p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+  /* category nav */
+  .cats{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  .cat-btn{
+    border-radius:999px;padding:8px 12px;background:#fff;border:1px solid #e6eef6;color:var(--muted);
+    cursor:pointer;font-weight:600;font-size:13px; transition:all .15s ease;
   }
-  h2{
-    font-size:20px;
-    margin-top:30px;
-    border-bottom:1px solid #e3e3e3;
-    padding-bottom:6px;
-    font-weight:700;
+  .cat-btn.active{background:linear-gradient(90deg,var(--accent-2), var(--accent)); color:#fff; box-shadow:0 6px 20px rgba(11,132,255,0.12)}
+  .cat-btn:hover{transform:translateY(-4px)}
+
+  /* gallery grid */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:var(--gap);
   }
-  .section p, ul{
-    margin:10px 0;
-    font-size:15px;
+  .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid #eef2f7;box-shadow:0 8px 22px rgba(16,24,40,0.04)}
+  .thumb{
+    position:relative;width:100%;height:0;padding-bottom:66.66%;background:linear-gradient(135deg,#eef7ff,#fbfcfe);
   }
-  ul{padding-right:18px}
-  .contact{
-    margin-bottom:20px;
-    font-size:15px;
+  .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9aa6b2;font-weight:700;font-size:18px}
+  .meta{padding:12px 14px;border-top:1px solid #f3f6fa}
+  .meta h3{margin:0;font-size:15px}
+  .meta p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  /* modal / lightbox */
+  .lb {
+    position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(8,12,20,0.7);z-index:9999;padding:24px;
   }
-  .contact div{margin:4px 0}
+  .lb.show{display:flex}
+  .lb-inner{max-width:1200px;width:100%;background:#05121a;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .lb-top{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))}
+  .lb-img{background:#000;display:flex;align-items:center;justify-content:center;min-height:60vh}
+  .lb-img img{max-width:100%;max-height:82vh;object-fit:contain;display:block;margin:auto}
+  .lb-cta{display:flex;gap:8px;align-items:center}
+  .btn-ghost{background:transparent;border:0;color:#fff;padding:8px 10px;border-radius:8px;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+  .caption{padding:12px 16px;color:#dbeafe;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));font-size:14px}
+
+  /* footer small */
+  footer{margin-top:14px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* responsive tweak */
+  @media (max-width:700px){
+    .profile{flex-direction:row-reverse}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <!-- header / profile -->
+    <header>
+      <div class="profile" role="banner">
+        <img src="profile.jpg" alt="نسرین هویدا — portrait">
+        <div>
+          <h1>نسرین هویدا</h1>
+          <p>طراح و مدرس طراحی آکادمیک — گالری آنلاین نقاشی</p>
+          <div class="cats" id="cats"></div>
+        </div>
+      </div>
+    </header>
 
-  <h1>نسرین هویدا</h1>
-  <div class="contact">
-    <div>طراح و مدرس طراحی آکادمیک</div>
-    <div>📞 09196869919</div>
-    <div>📧 nasrin.howaida@gmail.com</div>
+    <!-- gallery -->
+    <main>
+      <section id="gallery-section">
+        <div class="gallery" id="gallery"></div>
+      </section>
+    </main>
+
+    <!-- lightbox -->
+    <div class="lb" id="lightbox" aria-hidden="true">
+      <div class="lb-inner" role="dialog" aria-modal="true">
+        <div class="lb-top">
+          <div style="color:#fff;font-weight:700" id="lb-title"> </div>
+          <div class="lb-cta">
+            <button class="btn-ghost" id="prevBtn" title="تصویر قبل">◀</button>
+            <button class="btn-ghost" id="nextBtn" title="تصویر بعد">▶</button>
+            <a id="downloadBtn" class="btn-primary" href="#" target="_blank" download>دانلود</a>
+            <button class="btn-ghost" id="closeBtn" title="بستن">✕</button>
+          </div>
+        </div>
+        <div class="lb-img"><img id="lb-img" src="" alt=""></div>
+        <div class="caption" id="lb-caption"></div>
+      </div>
+    </div>
+
+    <footer>برای بهترین نتیجه: تصاویر را با سایز 1200×800 یا 1024×682 و فرمت JPG/PNG در پوشه‌ها قرار بده.</footer>
   </div>
 
-  <h2>درباره من</h2>
-  <p>
-  طراح و مدرس طراحی آکادمیک با تمرکز بر خلق آثار نوآورانه و توسعه بیان شخصی.
-  رویکرد من ترکیبی از مشاهده دقیق، تحلیل ساختاری و خلاقیت آزاد است.
-  هدفم تولید طراحی‌هایی است که از چارچوب‌های سنتی فراتر می‌روند و تجربه‌ای هنری، شخصی و مبتنی بر ایده‌پردازی ارائه می‌کنند.
-  </p>
+<script>
+/*
+  Self-loading gallery script
+  - پوشه‌ها و نمایش اتومات (تلاش برای بارگذاری فایل‌های شماره‌دار)
+  - نام‌گذاری پیشنهادی: هر پوشه شامل فایل‌هایی با نام 1.jpg, 2.jpg, 3.jpg ... یا 1.png, ...
+  - اسکریپت تا سقف maxPerCategory تلاش می‌کند (می‌توان کم یا زیاد کرد)
+*/
 
-  <h2>مهارت‌ها و توانایی‌ها</h2>
-  <ul>
-    <li>مسیرهای طراحی: ساختاری–تحلیلی، خطی–محیطی، اکسپرسیو–حسی، آزاد</li>
-    <li>تخصص در طراحی پرتره، فیگور، حیوانات و طبیعت‌بی‌جان</li>
-    <li>تجربه حرفه‌ای در Model Drawing (طراحی مدل زنده)</li>
-    <li>تسلط بر ابزارهای حرفه‌ای: مداد، زغال، راپید، مداد رنگی تک‌رنگ، خودکار، آبرنگ</li>
-    <li>مهارت ویژه در تکنیک هاشور با مداد گرافیتی و رنگی</li>
-    <li>مسلط بر تکنیک آبرنگ و میکس‌مدیا</li>
-  </ul>
+const categories = [
+  {key: "tarahi", title: "طراحی", folder: "طراحی"},
+  {key: "hashour", title: "سبک مدرن هاشور", folder: "سبک مدرن هاشور"},
+  {key: "abrang", title: "خلاقانه و آبرنگ", folder: "خلاقانه و آبرنگ"},
+  {key: "model", title: "مدل های زنده و فیگوراتیو", folder: "مدل های زنده و فیگوراتیو"}
+];
 
-  <h2>دوره‌های تخصصی</h2>
-  <ul>
-    <li>دوره پیشرفته فیگوراتیو مدل زنده – استاد بابک اطمینانی | تهران | ۱۳۸۶</li>
-    <li>طراحی چهره – آموزشگاه قلم افسریه | تهران | ۱۳۸۶</li>
-    <li>دوره آنلاین طراحی چهره (متد لومیس) – استاد سعید فروتن | ۱۴۰۳</li>
-    <li>دوره آنلاین تخصصی تکنیک هاشور – استاد سروش جهدی | ۱۴۰۴</li>
-  </ul>
+// تنظیمات
+const maxPerCategory = 24; // حداکثر تلاش برای هر پوشه (1..24)
+const exts = ["jpg","jpeg","png","webp"];
+const galleryEl = document.getElementById('gallery');
+const catsEl = document.getElementById('cats');
 
-  <h2>فعالیت‌های هنری مستقل</h2>
-  <p>
-  <strong>مجموعه پرتره‌های آبستره و انتزاعی | ۱۴۰۰ – تهران</strong><br>
-  خلق مجموعه‌ای از پرتره‌های ذهنی بدون رفرنس با تمرکز بر تجربه، بیان شخصی و روش‌های نوآورانه.  
-  ابزارها: خودکار، مداد رنگی، آبرنگ و میکس‌مدیا.
-  </p>
+// ساخت دکمه‌های دسته‌بندی
+categories.forEach((c, idx) => {
+  const b = document.createElement('button');
+  b.className = 'cat-btn' + (idx===0 ? ' active' : '');
+  b.textContent = c.title;
+  b.dataset.key = c.key;
+  b.addEventListener('click', ()=> {
+    document.querySelectorAll('.cat-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    renderCategory(c.key);
+  });
+  catsEl.appendChild(b);
+});
 
-  <h2>سوابق تحصیلی</h2>
-  <p>
-  دانش‌آموخته رشته معماری – هنرستان بعثت<br>
-  دروس: مبانی هنرهای تجسمی، طراحی، رنگ‌شناسی، تاریخ هنر، عکاسی<br>
-  ابزار: مداد، زغال، راپید، گواش  
-  تمرکز اصلی: طراحی طبیعت‌بی‌جان از مدل زنده
-  </p>
+// نگهداری تصاویر موجود
+const imagesByCat = {};
 
-  <h2>نرم‌افزارها</h2>
-  <ul>
-    <li>Adobe Photoshop</li>
-    <li>CorelDRAW</li>
-    <li>Microsoft Office</li>
-  </ul>
+// تابع کمکی: تلاش ایجاد آبجکت تصویر با کنترل onload/onerror
+function tryLoad(src){
+  return new Promise((resolve)=> {
+    const img = new Image();
+    img.onload = ()=> resolve({ok:true, src});
+    img.onerror = ()=> resolve({ok:false, src});
+    img.src = src + '?raw=true'; // GitHub raw sometimes needs ?raw for linking; + safe
+  });
+}
 
-</div>
+// بارگذاری همه تصاویر (async) — تلاش برای هر پسوند و شماره
+async function scanAll(){
+  for(const cat of categories){
+    imagesByCat[cat.key] = [];
+    for(let i=1;i<=maxPerCategory;i++){
+      let found = false;
+      for(const ext of exts){
+        const attempt = `${encodeURIComponent(cat.folder)}/${i}.${ext}`;
+        // Compose path as raw file in repo root (GitHub pages serves as normal path)
+        // tryLoad will resolve true if the file exists and loads
+        // (we append '?raw=true' in tryLoad but actual fetch is via Image)
+        // Note: encodeURIComponent used for folder names with spaces/Persian
+        // but actual file path on GH pages should match exactly; if problems, try renaming without spaces.
+        const res = await tryLoad(attempt);
+        if(res.ok){
+          imagesByCat[cat.key].push({src: attempt, title:`${cat.title} — ${i}`, filename:`${i}.${ext}`});
+          found = true;
+          break;
+        }
+      }
+      if(!found){
+        // هیچ پسوندی برای شماره i در این پوشه پیدا نشد -> ادامه می‌دهیم
+        // اما اگر برای چند شماره پشت سر هم پیدا نشود، ما همچنان تلاش می‌کنیم تا maxPerCategory
+      }
+    }
+  }
+  // بعد از انجام اسکن اولیه، رندر اولین دسته
+  renderCategory(categories[0].key);
+}
+
+// رندر یک دسته مشخص
+function renderCategory(key){
+  galleryEl.innerHTML = '';
+  const imgs = imagesByCat[key] || [];
+  if(imgs.length===0){
+    const no = document.createElement('div');
+    no.style.padding = '28px';
+    no.style.color = 'var(--muted)';
+    no.textContent = 'فعلاً تصویری در این دسته وجود ندارد. برای نمایش کافیست تصاویر را در پوشهٔ مربوطه با نام های 1.jpg, 2.jpg ... آپلود کنید.';
+    galleryEl.appendChild(no);
+    return;
+  }
+  imgs.forEach((it, idx)=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+    const th = document.createElement('div');
+    th.className = 'thumb';
+    const image = document.createElement('img');
+    image.loading = 'lazy';
+    image.src = it.src;
+    image.alt = it.title;
+    // placeholder div
+    const ph = document.createElement('div');
+    ph.className = 'ph';
+    ph.textContent = it.title;
+    th.appendChild(image);
+    th.appendChild(ph);
+
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const h3 = document.createElement('h3');
+    h3.textContent = it.title;
+    const p = document.createElement('p');
+    p.className = 'meta-text';
+    p.textContent = `فایل: ${it.filename}`;
+    meta.appendChild(h3);
+    meta.appendChild(p);
+
+    // کلیک برای باز کردن لایت‌باکس
+    card.appendChild(th);
+    card.appendChild(meta);
+    card.addEventListener('click', ()=> openLightbox(key, idx));
+    galleryEl.appendChild(card);
+
+    // وقتی عکس لود شد placeholder را مخفی کن
+    image.onload = ()=> { ph.style.display = 'none'; }
+    image.onerror = ()=> { ph.style.display = 'flex'; image.style.display = 'none'; }
+  });
+}
+
+/* --------------- Lightbox --------------- */
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbTitle = document.getElementById('lb-title');
+const lbCaption = document.getElementById('lb-caption');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const closeBtn = document.getElementById('closeBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+
+let current = {catKey:null, index:0};
+
+function openLightbox(catKey, idx){
+  const arr = imagesByCat[catKey];
+  if(!arr || !arr[idx]) return;
+  current.catKey = catKey;
+  current.index = idx;
+  const it = arr[idx];
+  lbImg.src = it.src;
+  lbTitle.textContent = categories.find(c=>c.key===catKey).title;
+  lbCaption.textContent = it.title;
+  downloadBtn.href = it.src;
+  lb.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(){
+  lb.classList.remove('show');
+  lbImg.src = '';
+  document.body.style.overflow = '';
+}
+
+function showNext(){
+  const arr = imagesByCat[current.catKey] || [];
+  if(arr.length===0) return;
+  current.index = (current.index + 1) % arr.length;
+  openLightbox(current.catKey, current.index);
+}
+function showPrev(){
+  const arr = imagesByCat[current.catKey] || [];
+  if(arr.length===0) return;
+  current.index = (current.index - 1 + arr.length) % arr.length;
+  openLightbox(current.catKey, current.index);
+}
+
+closeBtn.addEventListener('click', closeLightbox);
+nextBtn.addEventListener('click', showNext);
+prevBtn.addEventListener('click', showPrev);
+
+// keyboard controls
+document.addEventListener('keydown', (e)=>{
+  if(!lb.classList.contains('show')) return;
+  if(e.key === 'ArrowRight') showNext();
+  if(e.key === 'ArrowLeft') showPrev();
+  if(e.key === 'Escape') closeLightbox();
+});
+
+// click outside to close
+lb.addEventListener('click', (e)=>{
+  if(e.target === lb) closeLightbox();
+});
+
+// شروع اسکن
+scanAll();
+</script>
 </body>
 </html>
