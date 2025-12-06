@@ -4,275 +4,249 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>گالری آثار — نسرین هویدا</title>
-<meta name="description" content="گالری آنلاین نسرین هویدا — طراحی، هاشور مدرن، آبرنگ و مدل‌های زنده" />
+<meta name="description" content="گالری آنلاین نسرین هویدا — طراح و مدرس طراحی آکادمیک. گالری تصویری از طراحی‌ها، سبک مدرن هاشور، خلاقانه و آبرنگ و مدل‌های زنده." />
 <style>
   :root{
     --bg:#fbf7f4;
-    --panel:#ffffff;
+    --card:#ffffff;
     --muted:#6b6b6b;
-    --accent:#b66e3a; /* گرم و هنری */
-    --accent-2:#d89a6b;
-    --card-radius:14px;
-    --shadow: 0 10px 30px rgba(11,17,20,0.06);
-    font-family: "Vazirmatn", "Tahoma", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --accent1:#b36b3f; /* gradient color */
+    --accent2:#e4a56e;
+    --radius:14px;
+    --soft:#f0e9e6;
+    font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,#fcf9f7,#fbf7f4);color:#111}
-  .container{max-width:1180px;margin:28px auto;display:grid;grid-template-columns:320px 1fr;gap:22px;padding:0 16px;align-items:start}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#fbf7f4,#fff);color:#1a1a1a}
+  .wrap{max-width:1200px;margin:26px auto;display:grid;grid-template-columns:1fr 320px;gap:28px;padding:0 18px;align-items:start}
   /* SIDEBAR */
-  .panel{background:var(--panel);border-radius:var(--card-radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:var(--shadow)}
-  .profile-photo{width:112px;height:112px;border-radius:50%;overflow:hidden;border:6px solid #fff;box-shadow:0 8px 22px rgba(17,21,24,0.06);margin:0 auto}
-  .profile-photo img{width:100%;height:100%;object-fit:cover;display:block}
-  h1.name{font-size:20px;margin:12px 0 4px;text-align:center}
-  .role{font-size:13px;color:var(--muted);text-align:center;margin-bottom:12px}
-  .contact{font-size:14px;color:var(--muted);line-height:1.5;text-align:center}
-  .btn-download{display:block;margin:14px auto 8px;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;text-decoration:none;font-weight:700;text-align:center;width:85%}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
-  .tag{background:#fff;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.03);font-size:13px;color:var(--muted)}
-  .sidebar-section{margin-top:14px;font-size:14px;color:var(--muted)}
-  .filters{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-  .filter-btn{background:#fff;border:1px solid rgba(0,0,0,0.04);padding:10px;border-radius:10px;cursor:pointer;font-weight:600;color:#444}
-  .filter-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0;box-shadow:0 8px 22px rgba(182,110,58,0.12)}
+  .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 24px rgba(16,24,32,0.04)}
+  .profile-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 10px;box-shadow:0 6px 18px rgba(16,24,32,0.06)}
+  .profile-pic img{width:100%;height:100%;object-fit:cover;display:block}
+  h1.name{font-size:18px;margin:6px 0 2px;text-align:center}
+  .role{font-size:13px;color:var(--muted);text-align:center;margin-bottom:8px}
+  .contact{font-size:14px;color:var(--muted);line-height:1.6;text-align:center}
+  .contact a{color:var(--accent1);text-decoration:none}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:8px 12px;border-radius:10px;font-weight:700;margin:12px auto 8px;display:block;text-align:center}
+
+  .filters{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+  .filter-btn{background:#fff;border:1px solid #efe5df;padding:10px;border-radius:8px;cursor:pointer;color:#3b3b3b}
+  .filter-btn.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;border:0}
+
+  .about{margin-top:14px;color:var(--muted);font-size:14px;line-height:1.6;white-space:pre-wrap}
+
   /* MAIN */
   main{min-height:500px}
-  .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
-  .page-title{font-size:20px;font-weight:700}
-  .subtle{color:var(--muted);font-size:13px}
-  /* Gallery grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
-  .card-img{background:var(--panel);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.03);box-shadow:0 8px 20px rgba(11,17,20,0.04);display:flex;flex-direction:column}
-  .card-thumb{width:100%;height:180px;background:linear-gradient(135deg,#f5f5f6,#fff);display:flex;align-items:center;justify-content:center;position:relative}
-  .card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-  .card-meta{padding:12px;border-top:1px solid rgba(0,0,0,0.02);background:#fff;display:flex;flex-direction:column;gap:6px}
-  .card-meta .title{font-weight:700;color:#222}
-  .card-meta .sub{color:var(--muted);font-size:12px}
-  /* big about text */
-  .about{margin-top:12px;color:var(--muted);line-height:1.6;font-size:14px}
+  header.top{
+    display:flex;align-items:flex-start;gap:12px;justify-content:space-between;margin-bottom:12px;
+  }
+  .title{
+    font-size:20px;font-weight:700;
+  }
+  .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
+
+  /* gallery grid */
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;
+  }
+  .card-item{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.03);box-shadow:0 6px 18px rgba(16,24,32,0.03);position:relative}
+  .media{width:100%;height:0;padding-bottom:62%;position:relative;background:linear-gradient(180deg,#f6f6f6,#fff)}
+  .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .index-badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,0.6);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px}
+  .caption{padding:12px;border-top:1px solid #faf7f5;background:#fff}
+  .caption .title{font-weight:700;font-size:15px;margin-bottom:6px}
+  .caption .meta{color:var(--muted);font-size:12px}
+
   /* lightbox */
-  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
-  .lightbox.open{display:flex}
-  .lightbox img{max-width:95%;max-height:90%;border-radius:10px;box-shadow:0 18px 60px rgba(0,0,0,0.6)}
-  .lightbox .caption{color:#fff;margin-top:10px;text-align:center}
-  /* mobile */
-  @media (max-width:920px){
-    .container{grid-template-columns:1fr;padding:16px}
-    .profile-photo{margin:6px auto}
+  .lightbox{
+    position:fixed;inset:0;background:rgba(6,10,12,0.75);display:none;align-items:center;justify-content:center;padding:28px;z-index:9999
+  }
+  .lightbox img{max-width:95%;max-height:85%;box-shadow:0 18px 60px rgba(0,0,0,0.6);border-radius:8px}
+
+  /* responsive */
+  @media (max-width:980px){
+    .wrap{grid-template-columns:1fr; padding:0 12px}
+    .card{margin-bottom:12px}
   }
 </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap" dir="rtl">
+    <!-- MAIN GRID (left) -->
+    <main>
+      <div class="top">
+        <div>
+          <div class="title">گالری آثار — نسرین هویدا</div>
+          <div class="subtitle">طراحی | سبک مدرن هاشور | خلاقانه و آبرنگ | مدل‌های زنده و فیگوراتیو</div>
+        </div>
+        <!-- upload removed per request -->
+      </div>
+
+      <section id="gallery-section" class="grid" aria-live="polite">
+        <!-- items will be inserted by JS -->
+      </section>
+    </main>
+
     <!-- SIDEBAR -->
-    <aside class="panel" aria-label="اطلاعات هنرمند">
-      <div style="text-align:center">
-        <div class="profile-photo"><img src="nasrin_profile.png" alt="nasrin"></div>
-        <h1 class="name">نسرین هویدا</h1>
-        <div class="role">طراح و مدرس طراحی آکادمیک</div>
+    <aside class="card" aria-label="Profile">
+      <div class="profile-pic">
+        <img src="nasrin_profile.jpg" alt="تصویر نسرین هویدا" />
       </div>
+      <h1 class="name">نسرین هویدا</h1>
+      <div class="role">طراح و مدرس طراحی آکادمیک</div>
 
-      <div class="contact" style="margin-top:6px">
-        <div>تلفن: <strong>09196869919</strong></div>
-        <div>ایمیل: <a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
-      </div>
-
-      <a class="btn-download" href="CV_Nasrin Howaida.pdf" target="_blank">دانلود رزومه (PDF)</a>
-
-      <div class="sidebar-section">
-        <strong>دسته‌ها</strong>
-        <div class="tags" id="category-tags">
-          <!-- داینامیک پر می‌شود -->
+      <div class="contact">
+        <div>تلفن: 09196869919</div>
+        <div>ایمیل‌ها: 
+          <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
+          <div><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
         </div>
       </div>
 
-      <div class="sidebar-section">
-        <strong>درباره من</strong>
-        <div class="about" id="about-text">
-          تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
-        </div>
+      <!-- badge removed download button as requested -->
+      <div class="badge">رزومه (PDF)</div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">همه</button>
+        <button class="filter-btn" data-cat="Tarahi">طراحی</button>
+        <button class="filter-btn" data-cat="Modern_Hashour">سبک مدرن هاشور</button>
+        <button class="filter-btn" data-cat="Khalaghane_Abrang">خلاقانه و آبرنگ</button>
+        <button class="filter-btn" data-cat="Model_Figurative">مدل‌های زنده و فیگوراتیو</button>
+      </div>
+
+      <div class="about" id="about">
+        <!-- متنی از فایل رزومه برداشت شده و به عنوان درباره من استفاده شده -->
+        تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
       </div>
     </aside>
-
-    <!-- MAIN -->
-    <main>
-      <div class="panel">
-        <div class="header">
-          <div>
-            <div class="page-title">گالری آثار — نسرین هویدا</div>
-            <div class="subtle">طراحی | سبک مدرن هاشور | خلاقانه و آبرنگ | مدل‌های زنده و فیگوراتیو</div>
-          </div>
-          <div style="text-align:left">
-            <!-- Upload button: remains simple (user handles upload via GitHub) -->
-            <button id="uploader" style="padding:8px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);background:#fff;cursor:pointer">بارگذاری</button>
-          </div>
-        </div>
-
-        <div id="status" class="subtle" style="margin-bottom:12px">لطفاً صبر کنید — بارگذاری محتوا...</div>
-
-        <div id="gallery" class="grid" aria-live="polite">
-          <!-- گرید داینامیک -->
-        </div>
-      </div>
-    </main>
   </div>
 
-  <!-- LIGHTBOX -->
+  <!-- lightbox -->
   <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
-    <div style="text-align:center">
-      <img id="lb-img" src="" alt="">
-      <div class="caption" id="lb-caption"></div>
-    </div>
+    <img src="" alt="" id="lightbox-img">
   </div>
 
 <script>
 /*
-  رفتار:
-  - فهرست فولدرها به صورت ثابت اینجاست (همان که در ریپو وجود دارد).
-  - برای هر فولدر فایل manifest.json را می‌خوانیم (که اسکریپت gen_manifests.py ساخته).
-  - تصاویر را رندر می‌کنیم، و به‌عنوان زیرعنوان از نام فولدر استفاده می‌شود (راه‌حل A).
-  - اگر manifest موجود نبود، آن فولدر نادیده گرفته می‌شود و پیام نمایش داده می‌شود.
+  gallery loader:
+  - expects manifest.json in each folder with an array of filenames, e.g. ["5873207485265546326.jpg", ...]
+  - folders list below must match exact folder names in repo root
+  - builds a global numbered gallery and supports category filter
 */
-
-const categories = [
-  { id: 'Tarahi', label: 'طراحی' },
-  { id: 'Modern_Hashour', label: 'سبک مدرن هاشور' },
-  { id: 'Khalaghane_Abrang', label: 'خلاقانه و آبرنگ' },
-  { id: 'Model_Figurative', label: 'مدل‌های زنده و فیگوراتیو' }
+const folders = [
+  { key: "Khalaghane_Abrang", label: "خلاقانه و آبرنگ" },
+  { key: "Model_Figurative", label: "مدل‌های زنده و فیگوراتیو" },
+  { key: "Modern_Hashour", label: "سبک مدرن هاشور" },
+  { key: "Tarahi", label: "طراحی" }
 ];
 
-const gallery = document.getElementById('gallery');
-const status = document.getElementById('status');
-const tagsWrap = document.getElementById('category-tags');
+const galleryEl = document.getElementById('gallery-section');
+const filtersEl = document.getElementById('filters');
+let items = []; // {idx, folderKey, filename, url}
 
-let allItems = [];
-
-// ساخت دکمه‌های فیلتر (از دسته‌ها)
-function buildCategoryTags(){
-  // اول دکمه "همه"
-  const allBtn = document.createElement('button');
-  allBtn.className = 'tag filter-btn active';
-  allBtn.textContent = 'همه';
-  allBtn.addEventListener('click', ()=> { setActiveCategory('all'); });
-  tagsWrap.appendChild(allBtn);
-
-  categories.forEach(cat=>{
-    const b = document.createElement('button');
-    b.className = 'tag filter-btn';
-    b.textContent = cat.label;
-    b.dataset.cat = cat.id;
-    b.addEventListener('click', ()=> setActiveCategory(cat.id));
-    tagsWrap.appendChild(b);
-  });
-}
-
-function setActiveCategory(catId){
-  document.querySelectorAll('.filter-btn').forEach(el=>el.classList.remove('active'));
-  // دکمه همگی یا دکمه دسته را فعال کن
-  document.querySelectorAll('.tag').forEach(t=>{
-    if ((catId==='all' && t.textContent==='همه') || t.dataset.cat===catId) {
-      t.classList.add('active');
+async function loadManifests(){
+  let globalIndex = 1;
+  for(const f of folders){
+    const manifestPath = `/${f.key}/manifest.json`;
+    try{
+      const res = await fetch(manifestPath, {cache:'no-store'});
+      if(!res.ok) { console.warn('manifest not found:', manifestPath); continue; }
+      const list = await res.json();
+      if(!Array.isArray(list)) { console.warn('manifest not array:', manifestPath); continue; }
+      for(const fn of list){
+        // safe URL join
+        const url = `/${f.key}/${encodeURIComponent(fn)}`;
+        items.push({
+          idx: globalIndex,
+          folderKey: f.key,
+          filename: fn,
+          url
+        });
+        globalIndex++;
+      }
+    } catch(err){
+      console.warn('failed load manifest', manifestPath, err);
     }
-  });
-  renderGalleryItems(catId==='all' ? allItems : allItems.filter(i=>i.category===catId));
+  }
+  renderGallery(items);
 }
 
-function renderGalleryItems(items){
-  gallery.innerHTML='';
-  if(!items.length){
-    gallery.innerHTML = '<div style="color:var(--muted);padding:30px;background:linear-gradient(90deg,#fff,#fcfbf9);border-radius:12px;border:1px dashed rgba(0,0,0,0.04)">تصویری برای نمایش یافت نشد.</div>';
+function renderGallery(arr){
+  galleryEl.innerHTML = '';
+  if(arr.length === 0){
+    galleryEl.innerHTML = '<div style="color:var(--muted);padding:18px">تصویری یافت نشد.</div>';
     return;
   }
-  items.forEach(item=>{
+  for(const it of arr){
     const card = document.createElement('article');
-    card.className='card-img';
-    card.innerHTML = `
-      <div class="card-thumb">
-        <img loading="lazy" src="${item.path}" alt="${item.filename}">
-      </div>
-      <div class="card-meta">
-        <div class="title">${item.displayTitle}</div>
-        <div class="sub">${item.filename} — ${item.folderLabel}</div>
-      </div>
-    `;
-    // lightbox
-    card.querySelector('.card-thumb img').addEventListener('click', ()=>{
-      openLightbox(item.path, item.displayTitle + ' — ' + item.filename);
-    });
-    gallery.appendChild(card);
-  });
+    card.className = 'card-item';
+    card.setAttribute('data-cat', it.folderKey);
+
+    const media = document.createElement('div');
+    media.className = 'media';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = it.url;
+    img.alt = `${it.filename}`;
+    // placeholder if image fails
+    img.onerror = function(){ this.style.display='none'; media.classList.add('placeholder'); }
+    img.onclick = ()=>openLightbox(it.url, it.filename);
+
+    const idx = document.createElement('div');
+    idx.className = 'index-badge';
+    idx.textContent = String(it.idx);
+
+    media.appendChild(img);
+    media.appendChild(idx);
+
+    const caption = document.createElement('div');
+    caption.className = 'caption';
+    const title = document.createElement('div');
+    title.className = 'title';
+    title.textContent = 'طرح'; // requested label
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.textContent = `${it.filename} — ${it.folderKey.replace('_',' ')}`;
+
+    caption.appendChild(title);
+    caption.appendChild(meta);
+
+    card.appendChild(media);
+    card.appendChild(caption);
+    galleryEl.appendChild(card);
+  }
 }
 
-function openLightbox(src, caption){
-  const lb = document.getElementById('lightbox');
-  const lbimg = document.getElementById('lb-img');
-  const lbcap = document.getElementById('lb-caption');
-  lbimg.src = src;
-  lbcap.textContent = caption;
-  lb.classList.add('open');
-  lb.setAttribute('aria-hidden','false');
-}
-
-document.getElementById('lightbox').addEventListener('click', (e)=>{
-  if(e.target.id === 'lightbox' || e.target.id === 'lb-img'){
-    const lb = document.getElementById('lightbox');
-    lb.classList.remove('open');
-    lb.setAttribute('aria-hidden','true');
-    document.getElementById('lb-img').src='';
+// filtering logic
+filtersEl.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.filter-btn');
+  if(!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.getAttribute('data-cat');
+  if(cat === 'all'){
+    renderGallery(items);
+  } else {
+    renderGallery(items.filter(i=>i.folderKey === cat));
   }
 });
 
-// بارگذاری manifestها و ساخت لیست تصاویر
-async function loadAllManifests(){
-  status.textContent = 'در حال خواندن فهرست تصاویر از فایل manifest.json ...';
-  buildCategoryTags();
-
-  for(const cat of categories){
-    try{
-      const manifestUrl = `${cat.id}/manifest.json`;
-      const res = await fetch(manifestUrl, {cache: 'no-store'});
-      if(!res.ok){
-        console.warn('manifest not found for', cat.id);
-        // نشان بده که manifest موجود نیست (ولی ادامه بده)
-        continue;
-      }
-      const files = await res.json();
-      if(!Array.isArray(files) || files.length===0) continue;
-
-      // ایجاد آیتم‌ها
-      files.forEach(fn=>{
-        // محافظت: اگر آدرس به صورت کامل (شیء) باشد، سازگار نیست — ما فرض می‌کنیم فایل نام است
-        const path = `${cat.id}/${fn}`;
-        const displayTitle = cat.label; // راه‌حل A: عنوان از نام فولدر
-        allItems.push({
-          folder: cat.id,
-          folderLabel: cat.label,
-          filename: fn,
-          path,
-          displayTitle,
-        });
-      });
-
-    } catch(err){
-      console.error('Error reading manifest for', cat.id, err);
-      // ادامه می‌دهیم
-    }
-  }
-
-  // اگر هیچ آیتمی بارگذاری نشد، پیام مناسب نمایش بده
-  if(allItems.length===0){
-    status.innerHTML = 'فایل‌های manifest پیدا نشد یا خالی هستند. لطفاً مطمئن شوید که در هر فولدر فایل <code>manifest.json</code> دارید.';
-    renderGalleryItems([]);
-    return;
-  }
-
-  // مرتب‌سازی (اختیاری): بر اساس نام فایل یا ترتیب manifest
-  // allItems.sort((a,b)=> a.filename.localeCompare(b.filename, 'en', {numeric:true}));
-
-  status.textContent = `نمایش ${allItems.length} آثار از ${categories.length} دسته. برای فیلتر دسته را از ستون سمت چپ انتخاب کنید.`;
-  // رندر تمام آیتم‌ها
-  renderGalleryItems(allItems);
+// simple lightbox
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+function openLightbox(url, alt){
+  lbImg.src = url;
+  lbImg.alt = alt;
+  lightbox.style.display = 'flex';
+  lightbox.setAttribute('aria-hidden','false');
 }
+lightbox.addEventListener('click', ()=>{
+  lightbox.style.display = 'none';
+  lightbox.setAttribute('aria-hidden','true');
+  lbImg.src = '';
+});
 
-// شروع
-loadAllManifests();
+// kick off
+loadManifests();
 </script>
 </body>
 </html>
