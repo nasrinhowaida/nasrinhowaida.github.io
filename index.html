@@ -17,10 +17,8 @@
     font-family:"Vazirmatn", "Helvetica Neue", Arial, sans-serif;
   }
   html,body{height:100%;margin:0;background:linear-gradient(180deg,#fbf7f4,#fff);color:var(--text);-webkit-font-smoothing:antialiased}
-  .container{max-width:1220px;margin:28px auto;padding:0 18px}
-  /* layout: put aside first in DOM so on mobile it stacks above gallery,
-     but visually place on right for desktop using grid-column */
-  .wrap{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+  .wrap{max-width:1220px;margin:28px auto;display:grid;grid-template-columns:340px 1fr;gap:28px;padding:0 18px;align-items:start}
+  /* card */
   .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(16,24,32,0.05)}
   .profile-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:6px auto 12px;border:6px solid #fff;box-shadow:0 12px 30px rgba(16,24,32,0.06)}
   .profile-pic img{width:100%;height:100%;object-fit:cover;display:block}
@@ -39,9 +37,9 @@
 
   /* main */
   main{min-height:520px}
-  header.top{display:flex;align-items:flex-start;gap:12px;justify-content:space-between;margin-bottom:12px}
-  .title{font-size:22px;font-weight:800}
-  .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
+  header.top{margin-bottom:12px}
+  .title{font-size:22px;font-weight:800;text-align:right}
+  .subtitle{color:var(--muted);font-size:13px;margin-top:6px;text-align:right}
 
   /* gallery grid */
   .grid{
@@ -53,7 +51,7 @@
   .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .index-badge{position:absolute;left:10px;top:10px;background:linear-gradient(90deg,#000000aa,#00000066);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px}
   .caption{padding:12px;border-top:1px solid #faf7f5;background:#fff;display:flex;flex-direction:column;gap:6px}
-  .caption .title{font-weight:800;font-size:15px}
+  .caption .title{font-weight:800;font-size:15px;text-align:left}
   .caption .meta{color:var(--muted);font-size:12px;direction:ltr;text-align:left}
 
   /* lightbox */
@@ -62,100 +60,91 @@
   .lightbox img{max-width:100%;height:auto;display:block;border-radius:6px}
   .lightbox .meta{margin-top:10px;color:var(--muted);font-size:13px}
 
-  /* layout placement when aside is first in DOM */
-  aside { grid-column: 2; } /* place aside right on desktop */
-  main  { grid-column: 1; }
-
-  /* responsive: single column and aside first (because it's first in DOM) */
+  /* responsive */
   @media (max-width:980px){
-    .wrap{grid-template-columns:1fr}
-    aside { grid-column: auto; margin-bottom: 18px; } /* aside sits above main */
+    .wrap{grid-template-columns:1fr;padding:0 12px}
+    /* ensure profile appears before gallery on small screens (because HTML already places it first) */
     .profile-pic{width:96px;height:96px}
     .filters{flex-direction:row;flex-wrap:wrap;gap:8px}
     .filter-btn{flex:1 1 auto;justify-content:center}
   }
+  @media (max-width:520px){
+    .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  }
 </style>
 </head>
 <body>
-  <div class="container">
-    <!-- WRAP: note aside is intentionally before main in DOM so on mobile it appears first -->
-    <div class="wrap" dir="rtl">
+  <div class="wrap" dir="rtl">
+    <!-- SIDEBAR (put first so it shows before gallery on mobile) -->
+    <aside class="card" aria-label="پروفایل هنرمند">
+      <div class="profile-pic" role="img" aria-label="عکس نسرین">
+        <picture>
+          <!-- change filename if needed -->
+          <source srcset="nasrin_profile.jpg" type="image/jpeg">
+          <img src="nasrin_profile.jpg" alt="نسرین هویدا — پروفایل" onerror="this.src='profilenasrin.png'">
+        </picture>
+      </div>
 
-      <!-- SIDEBAR / PROFILE (first in DOM; visually right on desktop) -->
-      <aside class="card" aria-label="پروفایل هنرمند">
-        <div class="profile-pic" role="img" aria-label="عکس نسرین">
-          <!-- try profilenasrin.png then nasrin_profile.jpg -->
-          <picture>
-            <source srcset="profilenasrin.png" type="image/png">
-            <img src="nasrin_profile.jpg" alt="نسرین هویدا — پروفایل" onerror="this.onerror=null; this.src='profilenasrin.png'"/>
-          </picture>
+      <h1 class="name">نسرین هویدا</h1>
+      <div class="role">طراح و مدرس طراحی آکادمیک</div>
+
+      <div class="contact" style="margin-top:10px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
+          <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" fill="#b36b3f"/></svg>
+          <div>09196869919</div>
         </div>
 
-        <h1 class="name">نسرین هویدا</h1>
-        <div class="role">طراح و مدرس طراحی آکادمیک</div>
-
-        <div class="contact" style="margin-top:10px">
-          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
-            <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" fill="#b36b3f"/></svg>
-            <div>09196869919</div>
-          </div>
-
-          <div style="text-align:center">
-            <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
-            <div style="margin-top:6px"><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
-          </div>
+        <div style="text-align:center">
+          <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
+          <div style="margin-top:6px"><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
         </div>
+      </div>
 
-        <div style="margin-top:14px">
-          <a href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener" class="pill" title="مشاهده رزومه">مشاهده رزومه (PDF)</a>
-        </div>
+      <div style="margin-top:14px">
+        <a href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener" class="pill" title="مشاهده رزومه">مشاهده رزومه (PDF)</a>
+      </div>
 
-        <div class="filters" id="filters" style="margin-top:14px">
-          <button class="filter-btn active" data-cat="all"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.2"/></svg>همه</button>
-          <button class="filter-btn" data-cat="Tarahi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21l18-18" stroke="#b36b3f" stroke-width="1.6"/></svg>طراحی</button>
-          <button class="filter-btn" data-cat="Modern_Hashour"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#b36b3f" stroke-width="1.6"/></svg>سبک مدرن هاشور</button>
-          <button class="filter-btn" data-cat="Khalaghane_Abrang"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#b36b3f" stroke-width="1.6"/></svg>خلاقانه و آبرنگ</button>
-          <button class="filter-btn" data-cat="Model_Figurative"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b36b3f" stroke-width="1.6"/></svg>مدل‌های زنده و فیگوراتیو</button>
-        </div>
+      <div class="filters" id="filters" style="margin-top:14px">
+        <button class="filter-btn active" data-cat="all"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.2"/></svg>همه</button>
+        <button class="filter-btn" data-cat="Tarahi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21l18-18" stroke="#b36b3f" stroke-width="1.6"/></svg>طراحی</button>
+        <button class="filter-btn" data-cat="Modern_Hashour"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#b36b3f" stroke-width="1.6"/></svg>سبک مدرن هاشور</button>
+        <button class="filter-btn" data-cat="Khalaghane_Abrang"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#b36b3f" stroke-width="1.6"/></svg>خلاقانه و آبرنگ</button>
+        <button class="filter-btn" data-cat="Model_Figurative"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b36b3f" stroke-width="1.6"/></svg>مدل‌های زنده و فیگوراتیو</button>
+      </div>
 
-        <div class="about" id="about">
-  <strong>درباره من</strong>
-  <br>
-  به عنوان یک طراح، تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
+      <div class="about" id="about">
+<strong>درباره من</strong>
+<br>
+به عنوان یک طراح، تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
 
-  <br><br><strong>مهارت‌ها و تخصص</strong>
-  <ul style="padding-left:16px;color:var(--muted);margin:8px 0 0 0">
-  <li>مسلط به انواع رویکردهای طراحی: ساختاری-تحلیلی، خطی-محیطی، اکسپرسیو-حسی-آزاد</li>
-  <li>تسلط به طراحی موضوعات: پرتره، فیگور، حیوانات، طبیعت بی‌جان</li>
-  <li>مهارت در طراحی مدل زنده (Model Drawing)</li>
-  <li>توانایی کار با ابزارهای حرفه‌ای: مداد، زغال، راپید، مداد رنگی تک‌رنگ، خودکار، آبرنگ</li>
-  <li>تسلط کامل بر تکنیک هاشور با مداد گرافیتی و رنگی</li>
-  <li>تسلط به تکنیک آبرنگ</li>
-  </ul>
+<br><br><strong>مهارت‌ها و تخصص</strong>
+<ul style="padding-left:16px;color:var(--muted);margin:8px 0 0 0">
+<li>مسلط به انواع رویکردهای طراحی: ساختاری-تحلیلی، خطی-محیطی، اکسپرسیو-حسی-آزاد</li>
+<li>تسلط به طراحی موضوعات: پرتره، فیگور، حیوانات، طبیعت بی‌جان</li>
+<li>مهارت در طراحی مدل زنده (Model Drawing)</li>
+<li>توانایی کار با ابزارهای حرفه‌ای: مداد، زغال، راپید، مداد رنگی تک‌رنگ، خودکار، آبرنگ</li>
+<li>تسلط کامل بر تکنیک هاشور با مداد گرافیتی و رنگی</li>
+<li>تسلط به تکنیک آبرنگ</li>
+</ul>
+<br><strong>نرم‌افزارها</strong><br>
+Adobe Photoshop · CorelDRAW · Microsoft Office
+<br><br><strong>دوره‌ها</strong><br>
+دوره پیشرفته فیگوراتیو مدل زنده | طراحی چهره | دوره آنلاین متد لومیس | دوره آشنایی با تکنیک هاشور.
+      </div>
+    </aside>
 
-  <br><strong>توانایی‌های نرم‌افزاری</strong><br>
-  Adobe Photoshop · CorelDRAW · Microsoft Office
-  <br><br><strong>دوره‌ها</strong><br>
-  دوره پیشرفته فیگوراتیو مدل زنده | طراحی چهره | دوره آنلاین متد لومیس | دوره آشنایی با تکنیک هاشور.
-        </div>
-      </aside>
+    <!-- MAIN -->
+    <main>
+      <header class="top">
+        <div class="title">گالری آثار — نسرین هویدا</div>
+        <div class="subtitle">طراحی · سبک مدرن هاشور · خلاقانه و آبرنگ · مدل‌های زنده و فیگوراتیو</div>
+      </header>
 
-      <!-- MAIN (comes second in DOM but displays left on desktop) -->
-      <main>
-        <header class="top">
-          <div>
-            <div class="title">گالری آثار — نسرین هویدا</div>
-            <div class="subtitle">طراحی · سبک مدرن هاشور · خلاقانه و آبرنگ · مدل‌های زنده و فیگوراتیو</div>
-          </div>
-        </header>
-
-        <section id="gallery" class="grid" aria-live="polite">
-          <!-- JS will render cards here -->
-        </section>
-      </main>
-
-    </div> <!-- .wrap -->
-  </div> <!-- .container -->
+      <section id="gallery" class="grid" aria-live="polite">
+        <!-- JS will render cards here -->
+      </section>
+    </main>
+  </div>
 
   <!-- lightbox -->
   <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
@@ -167,7 +156,7 @@
   </div>
 
 <script>
-/* Modern_Hashour first so it shows first */
+/* folders: Modern_Hashour intentionally first so it displays first */
 const folders = [
   { key: "Modern_Hashour", label: "سبک مدرن هاشور" },
   { key: "Khalaghane_Abrang", label: "خلاقانه و آبرنگ" },
@@ -188,7 +177,11 @@ async function loadManifests(){
       if(!res.ok){ console.warn('manifest not found:', manifestPath); continue; }
       const list = await res.json();
       if(!Array.isArray(list)){ console.warn('manifest not array:', manifestPath); continue; }
+
+      // Ensure stable ordering: manifest order -> but we still add folder by folder
       for(const fn of list){
+        // skip non-image entries defensively
+        if(typeof fn !== 'string') continue;
         const url = `/${f.key}/${encodeURIComponent(fn)}`;
         items.push({
           idx: globalIndex,
@@ -206,7 +199,7 @@ async function loadManifests(){
   renderGallery(items);
 }
 
-/* render cards — filenames are NOT shown */
+/* رندر کارت‌ها — نام فایل مخفی (حذف شد) */
 function renderGallery(list){
   galleryEl.innerHTML = '';
   if(!list.length){
@@ -225,7 +218,10 @@ function renderGallery(list){
     img.loading = 'lazy';
     img.src = it.url;
     img.alt = `طرح — ${it.folderLabel}`;
-    img.onerror = function(){ this.style.display='none'; media.style.background = '#fff url(\"placeholder.png\") center/cover no-repeat'; }
+    img.onerror = function(){
+      this.style.display='none';
+      media.style.background = '#fff url("placeholder.png") center/cover no-repeat';
+    };
 
     const badge = document.createElement('div');
     badge.className = 'index-badge';
@@ -255,7 +251,7 @@ function renderGallery(list){
   }
 }
 
-/* filters */
+/* فیلترها */
 filters.addEventListener('click', (e)=>{
   const btn = e.target.closest('.filter-btn');
   if(!btn) return;
@@ -266,7 +262,7 @@ filters.addEventListener('click', (e)=>{
   else renderGallery(items.filter(i=>i.folderKey === cat));
 });
 
-/* lightbox */
+/* لایت‌باکس */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
 const lbMeta = document.getElementById('lb-meta');
@@ -287,7 +283,7 @@ function closeLightbox(){
   lbImg.src = '';
 }
 
-/* start loading manifests */
+/* شروع */
 loadManifests();
 </script>
 </body>
