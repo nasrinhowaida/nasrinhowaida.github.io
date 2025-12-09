@@ -17,8 +17,20 @@
     font-family:"Vazirmatn", "Helvetica Neue", Arial, sans-serif;
   }
   html,body{height:100%;margin:0;background:linear-gradient(180deg,#fbf7f4,#fff);color:var(--text);-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1220px;margin:28px auto;display:grid;grid-template-columns:1fr 340px;gap:28px;padding:0 18px;align-items:start}
-  /* sidebar */
+  .container{max-width:1220px;margin:0 auto;padding:28px 18px}
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,rgba(179,107,63,0.06), rgba(228,165,110,0.02));
+    border-radius:14px;padding:28px 22px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid rgba(0,0,0,0.02);
+  }
+  .hero .left{flex:1}
+  .hero h1{margin:0;font-size:30px;font-weight:800}
+  .hero p{color:var(--muted);margin:10px 0 0;font-size:15px;max-width:860px}
+  .hero .cta{display:flex;gap:10px;margin-top:12px}
+  .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(179,107,63,0.12)}
+  .btn.ghost{background:#fff;color:var(--accent1);border:1px solid rgba(179,107,63,0.12)}
+  /* layout */
+  .wrap{display:grid;grid-template-columns:1fr 340px;gap:28px;margin-top:18px;align-items:start}
   .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 8px 28px rgba(16,24,32,0.05)}
   .profile-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:6px auto 12px;border:6px solid #fff;box-shadow:0 12px 30px rgba(16,24,32,0.06)}
   .profile-pic img{width:100%;height:100%;object-fit:cover;display:block}
@@ -66,79 +78,104 @@
     .profile-pic{width:96px;height:96px}
     .filters{flex-direction:row;flex-wrap:wrap;gap:8px}
     .filter-btn{flex:1 1 auto;justify-content:center}
+    .hero{flex-direction:column;align-items:flex-start}
   }
 </style>
 </head>
 <body>
-  <div class="wrap" dir="rtl">
-    <!-- MAIN -->
-    <main>
-      <header class="top">
-        <div>
-          <div class="title">گالری آثار — نسرین هویدا</div>
-          <div class="subtitle">طراحی · سبک مدرن هاشور · خلاقانه و آبرنگ · مدل‌های زنده و فیگوراتیو</div>
-        </div>
-      </header>
+  <div class="container">
 
-      <section id="gallery" class="grid" aria-live="polite">
-        <!-- JS will render cards here -->
-      </section>
-    </main>
-
-    <!-- SIDEBAR -->
-    <aside class="card" aria-label="پروفایل هنرمند">
-      <div class="profile-pic" role="img" aria-label="عکس نسرین">
-        <picture>
-          <source srcset="nasrin_profile.jpg" type="image/png">
-          <img src="nasrin_profile.jpg" alt="نسرین هویدا — پروفایل" />
-        </picture>
-      </div>
-
-      <h1 class="name">نسرین هویدا</h1>
-      <div class="role">طراح و مدرس طراحی آکادمیک</div>
-
-      <div class="contact" style="margin-top:10px">
-        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
-          <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" fill="#b36b3f"/></svg>
-          <div>09196869919</div>
-        </div>
-
-        <div style="text-align:center">
-          <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
-          <div style="margin-top:6px"><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
+    <!-- HERO -->
+    <div class="hero" role="banner" aria-label="معرفی گالری">
+      <div class="left">
+        <h1>گالری آثار — نسرین هویدا</h1>
+        <p>طراحی، سبک مدرن هاشور، خلاقانه و آبرنگ، مدل‌های زنده و فیگوراتیو — مجموعه‌ای منتخب از تمرین‌ها و آثار استودیویی. از ستون سمت چپ دسته مورد نظر را انتخاب کنید تا آثار آن نمایش داده شوند.</p>
+        <div class="cta">
+          <a class="btn" href="#gallery">دیدن گالری</a>
+          <a class="btn ghost" href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener">مشاهده رزومه (PDF)</a>
         </div>
       </div>
-
-      <div style="margin-top:14px">
-        <a href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener" class="pill" title="مشاهده رزومه">مشاهده رزومه (PDF)</a>
+      <div style="width:260px;text-align:center">
+        <!-- small visual / decorative -->
+        <img src="profilenasrin.png" alt="نسرین" style="width:86px;height:86px;border-radius:50%;border:6px solid #fff;box-shadow:0 14px 40px rgba(16,24,32,0.06)" />
       </div>
+    </div>
 
-      <div class="filters" id="filters" style="margin-top:14px">
-        <button class="filter-btn active" data-cat="all"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.2"/></svg>همه</button>
-        <button class="filter-btn" data-cat="Tarahi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21l18-18" stroke="#b36b3f" stroke-width="1.6"/></svg>طراحی</button>
-        <button class="filter-btn" data-cat="Modern_Hashour"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#b36b3f" stroke-width="1.6"/></svg>سبک مدرن هاشور</button>
-        <button class="filter-btn" data-cat="Khalaghane_Abrang"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#b36b3f" stroke-width="1.6"/></svg>خلاقانه و آبرنگ</button>
-        <button class="filter-btn" data-cat="Model_Figurative"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b36b3f" stroke-width="1.6"/></svg>مدل‌های زنده و فیگوراتیو</button>
-      </div>
+    <!-- MAIN + SIDEBAR WRAP -->
+    <div class="wrap" dir="rtl">
+      <!-- MAIN -->
+      <main>
+        <header class="top">
+          <div>
+            <div class="title">مجموعه آثار</div>
+            <div class="subtitle">نگاهی روی انتخابی از طراحی‌ها و تمرین‌های فیگوراتیو — از سبک‌های کلاسیک تا مدرن</div>
+          </div>
+        </header>
 
-      <div class="about" id="about">
-<strong>درباره من</strong>
-<br>
-به عنوان یک طراح، تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
+        <section id="gallery" class="grid" aria-live="polite">
+          <!-- JS will render cards here -->
+        </section>
+      </main>
 
-<br><br><strong>مهارت‌ها و تخصص</strong>
-<ul style="padding-left:16px;color:var(--muted);margin:8px 0 0 0">
-<li>مسلط به انواع رویکردهای طراحی: ساختاری-تحلیلی، خطی-محیطی، اکسپرسیو-حسی-آزاد</li>
-<li>تسلط به طراحی موضوعات: پرتره، فیگور، حیوانات، طبیعت بی‌جان</li>
-<li>مهارت در طراحی مدل زنده (Model Drawing)</li>
-<li>توانایی کار با ابزارهای حرفه‌ای: مداد، زغال، راپید، مداد رنگی تک‌رنگ، خودکار، آبرنگ</li>
-<li>تسلط کامل بر تکنیک هاشور با مداد گرافیتی و رنگی</li>
-<li>تسلط به تکنیک آبرنگ</li>
-</ul>
-<br><strong>دوره‌ها</strong><br>
-دوره پیشرفته فیگوراتیو مدل زنده | طراحی چهره | دوره آنلاین متد لومیس | دوره آشنایی با تکنیک هاشور.
-      </div>
-    </aside>
+      <!-- SIDEBAR -->
+      <aside class="card" aria-label="پروفایل هنرمند">
+        <div class="profile-pic" role="img" aria-label="عکس نسرین">
+          <picture>
+            <source srcset="nasrin_profile.jpg" type="image/png">
+            <img src="nasrin_profile.jpg" alt="نسرین هویدا — پروفایل" />
+          </picture>
+        </div>
+
+        <h1 class="name">نسرین هویدا</h1>
+        <div class="role">طراح و مدرس طراحی آکادمیک</div>
+
+        <div class="contact" style="margin-top:10px">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
+            <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27c1.05.26 2.2.4 3.38.4a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.18.14 2.33.4 3.38a1 1 0 01-.27.95l-2.01 2.46z" fill="#b36b3f"/></svg>
+            <div>09196869919</div>
+          </div>
+
+          <div style="text-align:center">
+            <div><a href="mailto:nasrin.howaida@gmail.com">nasrin.howaida@gmail.com</a></div>
+            <div style="margin-top:6px"><a href="mailto:nasrinhowaida.artist@gmail.com">nasrinhowaida.artist@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a href="CV_Nasrin Howaida.pdf" target="_blank" rel="noopener" class="pill" title="مشاهده رزومه">مشاهده رزومه (PDF)</a>
+        </div>
+
+        <div class="filters" id="filters" style="margin-top:14px">
+          <button class="filter-btn active" data-cat="all"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#fff" stroke-width="1.2"/></svg>همه</button>
+          <button class="filter-btn" data-cat="Tarahi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21l18-18" stroke="#b36b3f" stroke-width="1.6"/></svg>طراحی</button>
+          <button class="filter-btn" data-cat="Modern_Hashour"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#b36b3f" stroke-width="1.6"/></svg>سبک مدرن هاشور</button>
+          <button class="filter-btn" data-cat="Khalaghane_Abrang"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#b36b3f" stroke-width="1.6"/></svg>خلاقانه و آبرنگ</button>
+          <button class="filter-btn" data-cat="Model_Figurative"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#b36b3f" stroke-width="1.6"/></svg>مدل‌های زنده و فیگوراتیو</button>
+        </div>
+
+        <div class="about" id="about">
+  <strong>درباره من</strong>
+  <br>
+  به عنوان یک طراح، تمرکز من بر خلق آثار نوآورانه است. در تمامی پروژه‌ها، خلاقیت همواره در اولویت قرار می‌گیرد و هر اثر بر اساس نگاهی متفاوت به سوژه و برخوردی منحصر به فرد با مدل شکل می‌گیرد. رویکرد من مبتنی بر توسعه ایده‌های بدیع و ارائه طراحی‌هایی فراتر از چارچوب‌های سنتی است.
+
+  <br><br><strong>مهارت‌ها و تخصص</strong>
+  <ul style="padding-left:16px;color:var(--muted);margin:8px 0 0 0">
+  <li>مسلط به انواع رویکردهای طراحی: ساختاری-تحلیلی، خطی-محیطی، اکسپرسیو-حسی-آزاد</li>
+  <li>تسلط به طراحی موضوعات: پرتره، فیگور، حیوانات، طبیعت بی‌جان</li>
+  <li>مهارت در طراحی مدل زنده (Model Drawing)</li>
+  <li>توانایی کار با ابزارهای حرفه‌ای: مداد، زغال، راپید، مداد رنگی تک‌رنگ، خودکار، آبرنگ</li>
+  <li>تسلط کامل بر تکنیک هاشور با مداد گرافیتی و رنگی</li>
+  <li>تسلط به تکنیک آبرنگ</li>
+  </ul>
+
+  <br><strong>توانایی‌های نرم‌افزاری</strong><br>
+  Adobe Photoshop · CorelDRAW · Microsoft Office
+  <br><br><strong>دوره‌ها</strong><br>
+  دوره پیشرفته فیگوراتیو مدل زنده | طراحی چهره | دوره آنلاین متد لومیس | دوره آشنایی با تکنیک هاشور.
+        </div>
+      </aside>
+    </div>
+
   </div>
 
   <!-- lightbox -->
@@ -151,11 +188,11 @@
   </div>
 
 <script>
-/* نام پوشه‌ها باید مطابق ریپو باشد */
+/* Put Modern_Hashour first so it loads / displays first */
 const folders = [
+  { key: "Modern_Hashour", label: "سبک مدرن هاشور" },
   { key: "Khalaghane_Abrang", label: "خلاقانه و آبرنگ" },
   { key: "Model_Figurative", label: "مدل‌های زنده و فیگوراتیو" },
-  { key: "Modern_Hashour", label: "سبک مدرن هاشور" },
   { key: "Tarahi", label: "طراحی" }
 ];
 
@@ -190,7 +227,7 @@ async function loadManifests(){
   renderGallery(items);
 }
 
-/* رندر کارت‌ها — نام فایل به نمایش در نمی‌آید (حذف شد) */
+/* render cards (file name removed from visible UI) */
 function renderGallery(list){
   galleryEl.innerHTML = '';
   if(!list.length){
@@ -239,7 +276,7 @@ function renderGallery(list){
   }
 }
 
-/* فیلترها */
+/* filters */
 filters.addEventListener('click', (e)=>{
   const btn = e.target.closest('.filter-btn');
   if(!btn) return;
@@ -250,7 +287,7 @@ filters.addEventListener('click', (e)=>{
   else renderGallery(items.filter(i=>i.folderKey === cat));
 });
 
-/* لایت‌باکس */
+/* lightbox */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lb-img');
 const lbMeta = document.getElementById('lb-meta');
@@ -271,7 +308,7 @@ function closeLightbox(){
   lbImg.src = '';
 }
 
-/* شروع */
+/* start */
 loadManifests();
 </script>
 </body>
